@@ -1,10 +1,70 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root{
-    --c-primary: #FF535B;
-    --c-white: #FBFAF3;
-    --c-back-900: #0a0a0a;
-    --c-back-800: #171717;
-    --c-back-700: #262626;
-    
+:root {
+  --c-primary: #ff535b;
+  --c-white: #fbfaf3;
+  --c-back-900: #0a0a0a;
+  --c-back-800: #171717;
+  --c-back-700: #262626;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+    background: var(--c-back-900);
+    color: var(--c-white);
+}
+
+.back-900 {
+  background: var(--c-back-900);
+}
+
+.back-800 {
+  background: var(--c-back-800);
+}
+
+.back-700 {
+  background: var(--c-back-700);
+}
+
+.primary-900 {
+  background: var(--c-primary);
+}
+
+.light-900 {
+  background: var(--c-white);
+}
+
+@font-face {
+  font-family: "betatron";
+  src: url("./assets/fonts/Betatron-Regular.otf");
+}
+@font-face {
+  font-family: "generalSans-medium";
+  src: url("./assets/fonts/GeneralSans-Medium.otf");
+}
+@font-face {
+  font-family: "generalSans-regular";
+  src: url("./assets/fonts/GeneralSans-Regular.otf");
+}
+
+.ff-betatron {
+  font-family: "betatron";
+}
+
+.ff-gs-medium {
+  font-family: "generalSans-medium";
+}
+
+.ff-gs-regular {
+  font-family: "generalSans-regular";
 }
