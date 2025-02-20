@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities{
+  .parent-section-padding{
+    @apply px-4 sm:px-5 md:px-6;
+  }
+}
+
 :root {
   --c-primary: #ff535b;
   --c-white: #fbfaf3;

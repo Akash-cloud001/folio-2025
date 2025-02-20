@@ -1,8 +1,11 @@
 import React from 'react'
+import Home from './home/Home'
 
 const UiLayout = () => {
   return (
-    <div>UiLayout</div>
+    <>
+      <Home />
+    </>      
   )
 }
 
