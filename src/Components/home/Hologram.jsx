@@ -5,7 +5,6 @@ export function Hologram(props,{delay=0}) {
   const group = useRef()
   const { nodes, materials, animations } = useGLTF('/models/hologram_hero.glb')
   const { actions } = useAnimations(animations, group)
-  console.log(actions)
   useLayoutEffect(()=>{
     if(actions){
         let slow = 0.5 + delay;
