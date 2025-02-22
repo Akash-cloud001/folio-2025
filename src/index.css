@@ -49,6 +49,9 @@ body{
 .light-900 {
   background: var(--c-white);
 }
+.text-light{
+  color: var(--c-white);
+}
 
 @font-face {
   font-family: "betatron";
@@ -73,4 +76,11 @@ body{
 
 .ff-gs-regular {
   font-family: "generalSans-regular";
+}
+
+.text-stroke {
+  color: var(--c-white);
+  -webkit-text-fill-color: transparent !important; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px !important;
+  -webkit-text-stroke-color: var(--c-white) !important;
 }
