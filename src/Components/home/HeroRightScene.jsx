@@ -11,16 +11,17 @@ const HeroRightScene = () => {
   useLayoutEffect(() => {
     function handleResize() {
       const screen = window.innerWidth;
-
+      let newSize = 10;
       if (screen >= 1280) {
-        setResize(13.1);
+        newSize = 12.1;
       } else if (screen >= 1028) {
-        setResize(12.0);
+        newSize = 11.0;
       } else if (screen >= 768) {
-        setResize(10);
+        newSize = 9;
       } else {
-        setResize(10);
+        newSize = 9;
       }
+      setResize(newSize);
     }
 
     handleResize(); // Initial call to set the correct size
@@ -31,23 +32,20 @@ const HeroRightScene = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  const { x, y, z } = useControls("heroleft", {
-    x: { value: 0, min: -Math.PI, max: Math.PI, step: 0.01 },
-    y: { value: 0, min: -Math.PI, max: Math.PI, step: 0.01 },
-    z: { value: 1.59, min: -Math.PI, max: Math.PI, step: 0.01 },
-    scale: { value: 13.1, min: 1, max: 20 },
-  });
-  // const {x,y,z, power} = useControls('pointLight', {
-  //     x: {value: 0.10, min: -10, max: 10, step: 0.01},
-  //     y: {value: -0.30, min: -10, max: 10, step: 0.01},
-  //     z: {value: -1.60, min: -10, max: 10, step: 0.01},
-  //     power: {value: 100, min: 0, max: 500}
-  // })
+  // const { x, y, z,scale } = useControls("heroleft", {
+  //   x: { value: 0, min: -Math.PI, max: Math.PI, step: 0.01 },
+  //   y: { value: 0, min: -Math.PI, max: Math.PI, step: 0.01 },
+  //   z: { value: 1.59, min: -Math.PI, max: Math.PI, step: 0.01 },
+  //   scale: { value: 13.1, min: 1, max: 20 },
+  // });
+ 
   const ref = useRef();
 
-  // useHelper(ref, THREE.PointLightHelper, 0.5, '#00f')
   return (
     <>
+      <OrbitControls enableZoom={false} enablePan={false} minDistance={1} maxDistance={100} screenSpacePanning={false} 
+      minPolarAngle={Math.PI / 2}  // Prevents looking too far up
+      maxPolarAngle={Math.PI / 2} />
       <hemisphereLight skyColor={"#fff"} groundColor={"#fff"} intensity={4} />
       <pointLight
         ref={ref}
@@ -58,11 +56,10 @@ const HeroRightScene = () => {
         decay={10} // Light fading
       />
       <Center>
-        {/* <Hologram scale={scale} position={[x,y,z]} rotation={[rx, ry, rz]}  /> */}
         <Hologram
           scale={resize}
           position={[1.6, 0.15, 0]}
-          rotation={[x, y, z]}
+          rotation={[0, 0, 1.59]}
           delay={0}
         />
       </Center>

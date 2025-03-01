@@ -10,7 +10,6 @@ const Home = () => {
 
   const handleMouseMove = (e)=>{
     setMouseY(String((e.clientY / window.innerHeight * 180 - 90) * 0.04)+'deg');
-    console.log(e.clientY / window.innerHeight * 180)
   }
   const rotation = (mouseY / window.innerHeight) * 180 - 90;
   return (
