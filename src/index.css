@@ -6,6 +6,9 @@
   .parent-section-padding{
     @apply px-4 sm:px-5 md:px-6;
   }
+  .padding-top-nav{
+    @apply pt-[124px];
+  }
 }
 
 :root {

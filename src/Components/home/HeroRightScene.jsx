@@ -18,7 +18,11 @@ const HeroRightScene = () => {
         newSize = 11.0;
       } else if (screen >= 768) {
         newSize = 9;
-      } else {
+      } 
+      else if (screen >= 624) {
+        newSize = 11;
+      } 
+      else {
         newSize = 13;
       }
       setResize(newSize);

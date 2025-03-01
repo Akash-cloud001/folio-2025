@@ -5,6 +5,7 @@ import { FloatingDock } from "./Components/FloatingDock";
 import { AnimatePresence } from "motion/react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import UiLayout from "./Components/UiLayout";
+import NavBar from "./Components/NavBar";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -12,6 +13,7 @@ function App() {
 
   return (
     <main className="main-container">
+      <NavBar />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route index element={<UiLayout />} />
