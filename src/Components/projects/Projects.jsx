@@ -1,8 +1,11 @@
 import React from 'react'
+import Heading from '../ui/Heading'
 
 const Projects = () => {
   return (
-    <div>Projects</div>
+    <section className='h-dvh w-full padding-top-nav'>
+      <Heading name='My Work' />
+    </section>
   )
 }
 
