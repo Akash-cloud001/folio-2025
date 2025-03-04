@@ -24,23 +24,36 @@ const projectsData=[
     url: 'https://google.com',
     imgUrl: '',
     videoUrl:'',
-    backgroundFrame: 'This portfolio website is a visually stunning and interactive showcase built using React, Three.js, React Three Fiber (R3F), Drei, Acternity UI, and React Bit for seamless 3D component integration. It features dynamic 3D elements, smooth animations, and an intuitive UI, offering an immersive experience. The site highlights my projects, skills, and achievements in a modern and engaging way.',
+    backgroundFrame: '',
+    tech: ['react', 'threeJs','r3f','drei','tailwind','acternity ui', 'react-bits', 'lenis'],
+    desc: 'This portfolio website is a visually stunning and interactive showcase built using React, Three.js, React Three Fiber (R3F), Drei, Acternity UI, and React Bit for seamless 3D component integration. It features dynamic 3D elements, smooth animations, and an intuitive UI, offering an immersive experience. The site highlights my projects, skills, and achievements in a modern and engaging way.',
   },
 ]
 const Projects = () => {
   return (
     <section className='h-auto w-full padding-top-nav border border-white '>
       <Heading name='My Work' />
-        <section className='h-[300vh] project-container bg-purple-400 w-full relative'>
-          <aside className='left-project-images bg-green-300 h-dvh w-1/2 sticky left-0 top-0 z-[1]'> 
+        <section className='h-[300vh] project-container  w-full relative'>
+          <aside className='left-project-images  h-dvh w-1/2 sticky left-0 top-0 z-[1]'> 
 
           </aside>
 
-          <aside className="right-project-desc h-full w-full z-0 absolute bg-cyan-300 top-0">
+          <aside className="right-project-desc h-full w-full z-0 absolute  top-0">
             {projectsData.map((pro, idx)=>(
-              <div key={idx} className="h-dvh w-1/2 bg-red-400 ml-auto">
-                {pro.name}
-              </div>
+              <aside key={idx} className="h-dvh w-1/2  ml-auto border border-black flex flex-col items-center justify-center gap-4">
+                <a href={pro.url} target='_blank' className='flex items-center gap-2 '>
+                  <p className='ff-betatron text-5xl uppercase text-light'>
+                    {pro.name}
+                  </p>
+                  <sup className='mb-8 text-base'>
+                    [0{idx+1}]
+                  </sup>
+                </a>
+
+                <div className='max-w-xl text-xl opacity-80'>
+                  {pro.desc}
+                </div>
+              </aside>
             ))}
           </aside>
         </section>
