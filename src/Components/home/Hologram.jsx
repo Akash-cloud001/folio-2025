@@ -1,13 +1,13 @@
 import React, { useLayoutEffect, useRef } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 
-export function Hologram(props,{delay=0}) {
+export function Hologram(props) {
   const group = useRef()
   const { nodes, materials, animations } = useGLTF('/models/hologram_hero.glb')
   const { actions } = useAnimations(animations, group)
   useLayoutEffect(()=>{
     if(actions){
-        let slow = 0.5 + delay;
+        let slow = 0.5 ;
         actions["Take 001"].setEffectiveTimeScale(slow)
         actions["Take 001"].play()
     }
