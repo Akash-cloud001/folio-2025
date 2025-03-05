@@ -1,10 +1,11 @@
 import React from 'react'
 import Heading from '../ui/Heading'
+import {motion} from 'motion/react'
 const projectsData=[
   {
     name: 'Anipedia',
     url: 'https://ani-pedia.web.app/',
-    imgUrl: '',
+    imgUrl: '/images/pro-1.jpeg',
     videoUrl:'',
     backgroundFrame: 'red',
     tech: ['react', 'tailwind', "api's"],
@@ -13,7 +14,7 @@ const projectsData=[
   {
     name: 'Solar System',
     url: 'https://solar-system-00.web.app/',
-    imgUrl: '',
+    imgUrl: '/images/pro-2.jpeg',
     videoUrl:'',
     backgroundFrame: '',
     tech: ['react', 'threeJs','r3f','drei','css','figma'],
@@ -22,7 +23,7 @@ const projectsData=[
   {
     name: 'Akash Folio',
     url: 'https://google.com',
-    imgUrl: '',
+    imgUrl: '/images/pro-3.jpeg',
     videoUrl:'',
     backgroundFrame: '',
     tech: ['react', 'threeJs','r3f','drei','tailwind','acternity ui', 'react-bits', 'lenis'],
@@ -31,34 +32,43 @@ const projectsData=[
 ]
 const Projects = () => {
   return (
-    <section className='h-auto w-full padding-top-nav border border-white '>
-      <Heading name='My Work' />
-        <section className='h-[300vh] project-container  w-full relative'>
-          <aside className='left-project-images  h-dvh w-1/2 sticky left-0 top-0 z-[1]'> 
-
-          </aside>
-
-          <aside className="right-project-desc h-full w-full z-0 absolute  top-0">
-            {projectsData.map((pro, idx)=>(
-              <aside key={idx} className="h-dvh w-1/2  ml-auto border border-black flex flex-col items-center justify-center gap-4">
-                <a href={pro.url} target='_blank' className='flex items-center gap-2 '>
-                  <p className='ff-betatron text-5xl uppercase text-light'>
-                    {pro.name}
-                  </p>
-                  <sup className='mb-8 text-base'>
-                    [0{idx+1}]
-                  </sup>
-                </a>
-
-                <div className='max-w-xl text-xl opacity-80'>
-                  {pro.desc}
-                </div>
-              </aside>
-            ))}
-          </aside>
+    <section className='h-auto w-full padding-top-nav px-8'>
+      <section className='h-[300vh] w-full project-container relative ' >
+        <section className='project-main-frame h-screen w-full sticky top-0 overflow-hidden flex items-center justify-center'>
+          <div className='w-max'>
+            <div className='relative text-[64px] w-max h-fit'>
+              <p className='uppercase ff-betatron  z-[1]'>MY WORK</p>
+              <p className='uppercase ff-betatron text-nowrap text-stroke absolute z-0 left-1 top-1'>MY WORK</p>
+            </div>
+          </div>
+          <motion.section className='project-scroller h-screen w-full bg-transparent absolute z-[1]'>
+            <ProjectCard name={projectsData[0].name} url={projectsData[0].imgUrl} tech={projectsData[0].tech} idx={1}/>
+          </motion.section>
         </section>
+      </section>
     </section>
   )
 }
 
 export default Projects
+
+
+const ProjectCard = ({name, url, tech, idx})=>{
+  return(
+    <motion.aside className='p-4'>
+      <figure className='project-card p-[10px] w-[300px] h-[auto] border border-[rgba(251,250,243,0.2)] relative'>
+        <img src="/images/cross.png" alt="" className='absolute -top-[5px] -left-[5px]' /> 
+        <img src="/images/cross.png" alt="" className='absolute -top-[5px] -right-[5px]' /> 
+        <img src="/images/cross.png" alt="" className='absolute -bottom-[5px] -left-[5px]' /> 
+        <img src="/images/cross.png" alt="" className='absolute -bottom-[5px] -right-[5px]' /> 
+        <img src={url} alt="pro-image" className='w-full h-[150px] object-cover object-top'/>
+        <div className='bg-[rgba(251,250,243,0.03)] h-[200px] w-full'>
+        <div className='relative text-4xl w-max h-fit mx-auto pt-4'>
+              <p className='uppercase ff-betatron text-primary z-[1]'>{name}</p>
+              <p className='uppercase ff-betatron text-nowrap text-stroke-red absolute z-0 left-1 top-3'>{name}</p>
+            </div>
+        </div>
+      </figure>
+    </motion.aside>
+  )
+}
