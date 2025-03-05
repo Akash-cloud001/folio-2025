@@ -55,6 +55,9 @@ body{
 .text-light{
   color: var(--c-white);
 }
+.text-primary{
+  color: var(--c-primary);
+}
 
 @font-face {
   font-family: "betatron";
@@ -86,6 +89,12 @@ body{
   -webkit-text-fill-color: transparent !important; /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 1px !important;
   -webkit-text-stroke-color: var(--c-white) !important;
+}
+.text-stroke-red {
+  color: var(--c-primary);
+  -webkit-text-fill-color: transparent !important; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px !important;
+  -webkit-text-stroke-color: var(--c-primary) !important;
 }
 .side-dots::before{
   content: '&#8226; &#8226;';
