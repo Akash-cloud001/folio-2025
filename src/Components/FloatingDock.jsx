@@ -68,7 +68,7 @@ const FloatingDockMobile = ({ items, className }) => {
                 exit={{ opacity: 0, y: 10, transition: { delay: idx * 0.05 } }}
                 transition={{ delay: (items.length - 1 - idx) * 0.05 }}
               >
-                <Link href={item.href} className="h-10 w-10 rounded-full bg-gray-50 dark:bg-neutral-900 flex items-center justify-center">
+                <Link href={item.href} className="h-10 w-10 rounded-full bg-[#171717] flex items-center justify-center">
                   <div className="h-4 w-4">{item.icon}</div>
                 </Link>
               </motion.div>
@@ -78,7 +78,7 @@ const FloatingDockMobile = ({ items, className }) => {
       </AnimatePresence>
       <button
         onClick={() => setOpen(!open)}
-        className="h-10 w-10 rounded-full bg-gray-50 dark:bg-neutral-800 flex items-center justify-center"
+        className="h-10 w-10 rounded-full bg-[#171717] dark:bg-[#171717] flex items-center justify-center"
       >
         <MenuBar className="h-5 w-5 text-neutral-500 dark:text-neutral-400" />
       </button>
@@ -92,7 +92,7 @@ const FloatingDockDesktop = ({ items, className }) => {
     <motion.div
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
-      className={`mx-auto hidden md:flex gap-4 h-16 items-center justify-center rounded-2xl bg-gray-50 dark:bg-neutral-900 px-4 ${className || ""}`}
+      className={`mx-auto hidden md:flex gap-4 h-16 items-center justify-center rounded-2xl bg-[#171717] dark:bg-[#171717] px-4 ${className || ""}`}
     >
       {items.map((item) => (
         <IconContainer mouseX={mouseX} key={item.title} {...item} />
@@ -127,7 +127,7 @@ function IconContainer({ mouseX, title, icon, href }) {
         style={{ width, height }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="aspect-square rounded-full bg-gray-200 dark:bg-neutral-800 flex items-center justify-center relative"
+        className="aspect-square rounded-full bg-[#262626] dark:bg-[#262626] flex items-center justify-center relative"
       >
         <AnimatePresence>
           {hovered && (
