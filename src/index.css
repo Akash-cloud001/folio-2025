@@ -195,3 +195,113 @@ body{
     @apply bg-background text-foreground;
   }
 }
+
+
+
+
+.fatfck img {
+  animation: 5000ms linear 1000ms infinite alternate-reverse none running;
+  width: 100%;
+}
+
+.fatfck span>* {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  clip: rect(0px, 900px, 0px, 0px);
+  left: 0px;
+  overflow: hidden;
+}
+
+.fatfck span> :first-child {
+  left: 16px;
+  animation: 3000ms linear 0s infinite alternate-reverse none running;
+}
+
+.fatfck span> :last-child {
+  left: 8px;
+  animation: faklje 2000ms linear 0s infinite alternate-reverse none running;
+}
+
+@keyframes faklje {
+  5% {
+    clip: rect(327px, 9999px, 484px, 0px);
+  }
+
+  10% {
+    clip: rect(411px, 9999px, 173px, 0px);
+  }
+
+  15% {
+    clip: rect(392px, 9999px, 178px, 0px);
+  }
+
+  20% {
+    clip: rect(136px, 9999px, 271px, 0px);
+  }
+
+  25% {
+    clip: rect(276px, 9999px, 156px, 0px);
+  }
+
+  30% {
+    clip: rect(30px, 9999px, 27px, 0px);
+  }
+
+  35% {
+    clip: rect(238px, 9999px, 334px, 0px);
+  }
+
+  40% {
+    clip: rect(155px, 9999px, 240px, 0px);
+  }
+
+  45% {
+    clip: rect(84px, 9999px, 287px, 0px);
+  }
+
+  50% {
+    clip: rect(467px, 9999px, 271px, 0px);
+  }
+
+  55% {
+    clip: rect(307px, 9999px, 104px, 0px);
+  }
+
+  60% {
+    clip: rect(418px, 9999px, 12px, 0px);
+  }
+
+  65% {
+    clip: rect(113px, 9999px, 261px, 0px);
+  }
+
+  70% {
+    clip: rect(241px, 9999px, 4px, 0px);
+  }
+
+  75% {
+    clip: rect(463px, 9999px, 431px, 0px);
+  }
+
+  80% {
+    clip: rect(302px, 9999px, 175px, 0px);
+  }
+
+  85% {
+    clip: rect(93px, 9999px, 110px, 0px);
+  }
+
+  90% {
+    clip: rect(330px, 9999px, 343px, 0px);
+  }
+
+  95% {
+    clip: rect(423px, 9999px, 398px, 0px);
+  }
+
+  100% {
+    clip: rect(267px, 9999px, 16px, 0px);
+  }
+}

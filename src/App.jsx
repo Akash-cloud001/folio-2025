@@ -12,7 +12,7 @@ function App() {
   const location = useLocation();
 
   return (
-    <main className="main-container pb-24">
+    <main className="main-container pb-4">
       <NavBar />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>

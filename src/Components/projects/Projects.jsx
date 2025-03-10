@@ -38,7 +38,7 @@ const Projects = () => {
   })
   const y = useTransform(scrollYProgress, [0, 0.8], ['0%', '-100%']);
   return (
-    <section className='h-auto w-full padding-top-nav px-8'>
+    <section className='h-auto w-full padding-top-nav px-5 sm:px-8'>
       <section ref={ref} className='h-[400vh] w-full project-container relative ' >
         <section className='project-main-frame h-screen w-full sticky top-0 overflow-hidden flex items-center justify-center'>
           <div className='w-max'>
