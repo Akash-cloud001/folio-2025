@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Heading from '../ui/Heading'
-import {motion} from 'motion/react'
+import {motion, useInView, useScroll, useTransform} from 'motion/react'
 import { Gravity, MatterBody } from "../ui/gravity";
 const projectsData=[
   {
@@ -32,9 +32,14 @@ const projectsData=[
   },
 ]
 const Projects = () => {
+  const ref = useRef();
+  const { scrollYProgress } = useScroll({
+    target:ref
+  })
+  const y = useTransform(scrollYProgress, [0, 0.8], ['0%', '-100%']);
   return (
     <section className='h-auto w-full padding-top-nav px-8'>
-      <section className='h-[300vh] w-full project-container relative ' >
+      <section ref={ref} className='h-[400vh] w-full project-container relative ' >
         <section className='project-main-frame h-screen w-full sticky top-0 overflow-hidden flex items-center justify-center'>
           <div className='w-max'>
             <div className='relative text-[64px] w-max h-fit'>
@@ -42,8 +47,10 @@ const Projects = () => {
               <p className='uppercase ff-betatron text-nowrap text-stroke absolute z-0 left-1 top-1'>MY WORK</p>
             </div>
           </div>
-          <motion.section className='project-scroller h-screen w-full bg-transparent absolute z-[1] bg-red-500'>
-            <ProjectCard name={projectsData[0].name} url={projectsData[0].imgUrl} tech={projectsData[0].tech} idx={1}/>
+          <motion.section style={{y}} className='top-full project-scroller h-[300vh] w-full bg-transparent absolute z-[1] grid grid-cols-3'>
+            <ProjectCard name={projectsData[2].name} url={projectsData[2].imgUrl} tech={projectsData[2].tech} idx={1} className={'relative top-0 '}/>
+            <ProjectCard name={projectsData[1].name} url={projectsData[1].imgUrl} tech={projectsData[1].tech} idx={2} className={'relative top-1/3'}/>
+            <ProjectCard name={projectsData[0].name} url={projectsData[0].imgUrl} tech={projectsData[0].tech} idx={3} className={'relative top-2/3' }/>
           </motion.section>
         </section>
       </section>
@@ -54,10 +61,37 @@ const Projects = () => {
 export default Projects
 
 
-const ProjectCard = ({name, url, tech, idx})=>{
+const ProjectCard = ({name, url, tech, idx, className})=>{
+  
+  const ref = useRef();
+  const  isInView = useInView(ref, {
+    triggerOnce: true,
+    threshold: 0.5,
+    once: true
+  });
+  const projectCardVariant = {
+    initial: {
+      opacity: 0.5,
+      filter:blur('10px'),
+      scale: 0.8
+    },
+    animate: {
+      opacity: 1,
+      filter:blur(0),
+      scale: 1,
+      transition:{
+        duration: 0.4,
+        ease: 'easeIn'
+      }
+    },
+    exit: {
+      opacity: 0.5,
+      scale: 0.8
+    }
+  }
   return(
-    <motion.aside className='p-4'>
-      <figure className='project-card p-[10px] w-[320px] h-[auto] border border-[rgba(251,250,243,0.2)] relative'>
+    <motion.aside ref={ref} initial='initial' animate={isInView ? 'animate' : ''} exit='exit' variants={projectCardVariant} className={`p-4 ${className}`}>
+      <figure className='project-card p-[10px] w-[320px] h-[auto] border back-900 border-[rgba(251,250,243,0.2)] relative '>
         <img src="/images/cross.png" alt="" className='absolute -top-[5px] -left-[5px]' /> 
         <img src="/images/cross.png" alt="" className='absolute -top-[5px] -right-[5px]' /> 
         <img src="/images/cross.png" alt="" className='absolute -bottom-[5px] -left-[5px]' /> 
