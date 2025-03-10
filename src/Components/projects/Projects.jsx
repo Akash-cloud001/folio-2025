@@ -71,21 +71,22 @@ const ProjectCard = ({name, url, tech, idx, className})=>{
   });
   const projectCardVariant = {
     initial: {
-      opacity: 0.5,
-      filter:blur('10px'),
+      opacity: 0.75,
+      filter:'blur(20px)',
       scale: 0.8
     },
     animate: {
       opacity: 1,
-      filter:blur(0),
+      filter:'blur(0)',
       scale: 1,
       transition:{
-        duration: 0.4,
-        ease: 'easeIn'
+        duration: 0.5,
+        // ease: 'ease'
       }
     },
     exit: {
-      opacity: 0.5,
+      opacity: 0.75,
+      filter:'blur(20px)',
       scale: 0.8
     }
   }
