@@ -6,8 +6,10 @@ import { AnimatePresence } from "motion/react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import UiLayout from "./Components/UiLayout";
 import NavBar from "./Components/NavBar";
+import useLenisSmoothScroll from "./hooks/useLenisSmoothScroll";
 
 function App() {
+  useLenisSmoothScroll()
   const [count, setCount] = useState(0);
   const location = useLocation();
 
