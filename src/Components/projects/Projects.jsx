@@ -53,9 +53,9 @@ const Projects = () => {
             <ProjectCard name={projectsData[0].name} url={projectsData[0].imgUrl} tech={projectsData[0].tech} idx={3} className={'relative top-2/3' }/> */}
           {/* </motion.section> */}
         </section>
-        <ProjectCard name={projectsData[2].name} url={projectsData[2].imgUrl} tech={projectsData[2].tech} idx={1} className={'sticky top-[20%] left-[0%] -translate-x-1/2 w-max'}/>
-        <ProjectCard name={projectsData[1].name} url={projectsData[1].imgUrl} tech={projectsData[1].tech} idx={2} className={'sticky top-[20%] left-[35%] -translate-x-1/2 w-max'}/>
-        <ProjectCard name={projectsData[0].name} url={projectsData[0].imgUrl} tech={projectsData[0].tech} idx={3} className={'sticky top-[20%] left-[80%] -translate-x-1/2 w-max'}/>
+        <ProjectCard name={projectsData[2].name} url={projectsData[2].url} imgUrl={projectsData[2].imgUrl} tech={projectsData[2].tech} idx={1} className={'sticky top-[20%] left-[0%] -translate-x-1/2 w-max'}/>
+        <ProjectCard name={projectsData[1].name} url={projectsData[1].url} imgUrl={projectsData[1].imgUrl} tech={projectsData[1].tech} idx={2} className={'sticky top-[20%] left-[38%] -translate-x-1/2 w-max'}/>
+        <ProjectCard name={projectsData[0].name} url={projectsData[0].url} imgUrl={projectsData[0].imgUrl} tech={projectsData[0].tech} idx={3} className={'sticky top-[20%] left-[80%] -translate-x-1/2 w-max'}/>
         {/* <ProjectCard name={projectsData[2].name} url={projectsData[2].imgUrl} tech={projectsData[2].tech} idx={1} className={'sticky top-[20%] '}/> */}
       </section>
     </section>
@@ -65,7 +65,7 @@ const Projects = () => {
 export default Projects
 
 
-const ProjectCard = ({name, url, tech, idx, className})=>{
+const ProjectCard = ({name, url, tech, idx, className, imgUrl})=>{
   
   const ref = useRef();
   const  isInView = useInView(ref, {
@@ -95,21 +95,21 @@ const ProjectCard = ({name, url, tech, idx, className})=>{
   }
   return(
     <motion.aside ref={ref} initial='initial' animate={isInView ? 'animate' : 'exit'} exit='exit' variants={projectCardVariant} className={`p-4 ${className}`}>
-      <figure className='project-card p-[10px] w-[320px] h-[auto] border back-900 border-[rgba(251,250,243,0.2)] relative '>
+      <figure className='project-card p-[10px] w-[320px] h-[400px] border back-900 border-[rgba(251,250,243,0.2)] relative '>
         <img src="/images/cross.png" alt="" className='absolute -top-[5px] -left-[5px]' /> 
         <img src="/images/cross.png" alt="" className='absolute -top-[5px] -right-[5px]' /> 
         <img src="/images/cross.png" alt="" className='absolute -bottom-[5px] -left-[5px]' /> 
         <img src="/images/cross.png" alt="" className='absolute -bottom-[5px] -right-[5px]' /> 
-        <img src={url} alt="pro-image" className='w-full h-[160px] object-cover object-top'/>
-        <div className='bg-transparent h-[200px] w-full'>
-          <div className='relative text-4xl w-max h-fit mx-auto pt-4 flex gap-1 text-primary'>
+        <img src={imgUrl} alt="pro-image" className='w-full h-[160px] object-cover object-top'/>
+        <a target='_blank' href={url} className='bg-transparent  w-full z-20'>
+          <div className='relative text-4xl w-max h-fit mx-auto pt-4 flex gap-1 text-primary z-50'>
                 <p className='uppercase ff-betatron  z-[1]'>{name}</p>
                 <p className='uppercase ff-betatron text-nowrap text-stroke-red absolute z-0 left-1 top-3'>{name}</p>
                 <div className='relative'>
                 <sub className='relative -top-5  text-base'>[0{idx}]</sub>
                 </div>
           </div>
-        </div>
+        </a>
         <Gravity gravity={{ x: 0, y: 1 }} className="w-full h-full">
           {tech.map((item, idx)=>(
               <MatterBody
