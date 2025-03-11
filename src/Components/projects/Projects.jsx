@@ -37,22 +37,26 @@ const Projects = () => {
     target:ref
   })
   const y = useTransform(scrollYProgress, [0, 0.8], ['0%', '-100%']);
+  const top = useTransform(scrollYProgress, [0, 0.9], ['100%', '-200%']);
   return (
     <section className='h-auto w-full padding-top-nav px-5 sm:px-8'>
-      <section ref={ref} className='h-[400vh] w-full project-container relative ' >
-        <section className='project-main-frame h-screen w-full sticky top-0 overflow-hidden flex items-center justify-center'>
+      <section ref={ref} className='h-[350vh] w-full project-container relative ' >
+        <section className='project-main-frame h-[100vh] w-full sticky top-0 overflow-hidden flex items-center justify-center'>
           <div className='w-max'>
             <div className='relative text-[64px] w-max h-fit'>
               <p className='uppercase ff-betatron  z-[1]'>MY WORK</p>
               <p className='uppercase ff-betatron text-nowrap text-stroke absolute z-0 left-1 top-1'>MY WORK</p>
             </div>
           </div>
-          <motion.section style={{y}} className='top-full project-scroller h-[300vh] w-full bg-transparent absolute z-[1] grid grid-cols-3'>
-            <ProjectCard name={projectsData[2].name} url={projectsData[2].imgUrl} tech={projectsData[2].tech} idx={1} className={'relative top-0 '}/>
-            <ProjectCard name={projectsData[1].name} url={projectsData[1].imgUrl} tech={projectsData[1].tech} idx={2} className={'relative top-1/3'}/>
-            <ProjectCard name={projectsData[0].name} url={projectsData[0].imgUrl} tech={projectsData[0].tech} idx={3} className={'relative top-2/3' }/>
-          </motion.section>
+          {/* <motion.section style={{top}} className='project-scroller h-[300vh] w-full bg-transparent absolute z-[1] grid grid-cols-3'> */}
+            {/* <ProjectCard name={projectsData[1].name} url={projectsData[1].imgUrl} tech={projectsData[1].tech} idx={2} className={'relative top-1/3'}/>
+            <ProjectCard name={projectsData[0].name} url={projectsData[0].imgUrl} tech={projectsData[0].tech} idx={3} className={'relative top-2/3' }/> */}
+          {/* </motion.section> */}
         </section>
+        <ProjectCard name={projectsData[2].name} url={projectsData[2].imgUrl} tech={projectsData[2].tech} idx={1} className={'sticky top-[20%] left-[0%] -translate-x-1/2 w-max'}/>
+        <ProjectCard name={projectsData[1].name} url={projectsData[1].imgUrl} tech={projectsData[1].tech} idx={2} className={'sticky top-[20%] left-[35%] -translate-x-1/2 w-max'}/>
+        <ProjectCard name={projectsData[0].name} url={projectsData[0].imgUrl} tech={projectsData[0].tech} idx={3} className={'sticky top-[20%] left-[80%] -translate-x-1/2 w-max'}/>
+        {/* <ProjectCard name={projectsData[2].name} url={projectsData[2].imgUrl} tech={projectsData[2].tech} idx={1} className={'sticky top-[20%] '}/> */}
       </section>
     </section>
   )
@@ -65,8 +69,7 @@ const ProjectCard = ({name, url, tech, idx, className})=>{
   
   const ref = useRef();
   const  isInView = useInView(ref, {
-    triggerOnce: true,
-    threshold: 0.5,
+    margin: '-10%',
     once: true
   });
   const projectCardVariant = {
@@ -91,7 +94,7 @@ const ProjectCard = ({name, url, tech, idx, className})=>{
     }
   }
   return(
-    <motion.aside ref={ref} initial='initial' animate={isInView ? 'animate' : ''} exit='exit' variants={projectCardVariant} className={`p-4 ${className}`}>
+    <motion.aside ref={ref} initial='initial' animate={isInView ? 'animate' : 'exit'} exit='exit' variants={projectCardVariant} className={`p-4 ${className}`}>
       <figure className='project-card p-[10px] w-[320px] h-[auto] border back-900 border-[rgba(251,250,243,0.2)] relative '>
         <img src="/images/cross.png" alt="" className='absolute -top-[5px] -left-[5px]' /> 
         <img src="/images/cross.png" alt="" className='absolute -top-[5px] -right-[5px]' /> 
