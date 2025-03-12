@@ -39,7 +39,7 @@ const Projects = () => {
   const y = useTransform(scrollYProgress, [0, 0.8], ['0%', '-100%']);
   const top = useTransform(scrollYProgress, [0, 0.9], ['100%', '-200%']);
   return (
-    <section className='h-auto w-full padding-top-nav px-5 sm:px-8'>
+    <section className='h-auto w-full md:padding-top-nav px-5 sm:px-8'>
       <section ref={ref} className='h-[350vh] w-full project-container relative ' >
         <section className='project-main-frame h-[100vh] w-full sticky top-0 overflow-hidden flex items-center justify-center'>
           <div className='w-max'>
@@ -94,7 +94,7 @@ const ProjectCard = ({name, url, tech, idx, className, imgUrl})=>{
     }
   }
   return(
-    <motion.aside ref={ref} initial='initial' animate={isInView ? 'animate' : 'exit'} exit='exit' variants={projectCardVariant} className={`p-4 ${className}`}>
+    <motion.aside ref={ref} initial='initial' animate={isInView ? 'animate' : 'exit'} exit='exit' variants={projectCardVariant} className={`p-4 ${className} overflow-hidden`}>
       <figure className='project-card p-[10px] w-[320px] h-[400px] border back-900 border-[rgba(251,250,243,0.2)] relative '>
         <img src="/images/cross.png" alt="" className='absolute -top-[5px] -left-[5px]' /> 
         <img src="/images/cross.png" alt="" className='absolute -top-[5px] -right-[5px]' /> 
