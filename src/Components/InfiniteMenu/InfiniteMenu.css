@@ -39,6 +39,7 @@
     color: #fbfaf3;
   }
   .face-title {
+    font-family: "betatron";
     position: absolute;
     top: 25%;
     width: max-content;
@@ -47,7 +48,7 @@
   }
   @media screen and (min-width: 640px) {
     .face-title{
-      font-size: 3rem;
+      font-size: 2rem;
       top: 10%;
     }
   }
@@ -63,7 +64,8 @@
   
   .face-title.active {
     opacity: 1;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -80%);
+    letter-spacing: 1px;
     pointer-events: auto;
     transition: 0.5s ease;
     color: #fbfaf3;

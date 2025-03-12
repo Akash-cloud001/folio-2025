@@ -5,7 +5,7 @@ const Skills = () => {
   return (
     <section className='skills-container h-dvh w-full padding-top-nav'> 
         <Heading name='skills' />
-      <div style={{ position: 'relative', }} className='mx-auto w-[90%] sm:w-[95%]  rounded-2xl overflow-hidden h-[80vh] '>
+      <div style={{ position: 'relative', }} className='mx-auto w-[90%] sm:w-[95%]  rounded-2xl overflow-hidden h-[75vh] '>
         <InfiniteMenu items={items} />
       </div>
     </section>
@@ -26,6 +26,10 @@ const items = [
   {
     image: '/images/figma.jpg',
     title: 'FIGMA',
+  },
+  {
+    image: '/images/next.jpg',
+    title: 'NEXT JS',
   },
   {
     image: '/images/react.jpg',
