@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import Heading from '../ui/Heading'
 import {motion, useInView, useScroll, useTransform} from 'motion/react'
 import { Gravity, MatterBody } from "../ui/gravity";
+import { Link } from 'react-router-dom';
 const projectsData=[
   {
     name: 'Anipedia',
@@ -49,10 +50,14 @@ const Projects = () => {
             </div>
           </div>
         </section>
-        <ProjectCard name={projectsData[2].name} url={projectsData[2].url} imgUrl={projectsData[2].imgUrl} tech={projectsData[2].tech} idx={1} className={'sticky top-[20%] left-[20%] lg:left-[0%] -translate-x-1/2 w-max'}/>
-        <ProjectCard name={projectsData[1].name} url={projectsData[1].url} imgUrl={projectsData[1].imgUrl} tech={projectsData[1].tech} idx={2} className={'sticky top-[20%] left-[20%] lg:left-[34%] xl:left-[38%] -translate-x-1/2 w-max'}/>
-        <ProjectCard name={projectsData[0].name} url={projectsData[0].url} imgUrl={projectsData[0].imgUrl} tech={projectsData[0].tech} idx={3} className={'sticky top-[20%] left-[20%] lg:left-[100%] -translate-x-1/2 w-max'}/>
+        <ProjectCard name={projectsData[2].name} url={projectsData[2].url} imgUrl={projectsData[2].imgUrl} tech={projectsData[2].tech} idx={1} className={'sticky top-[10%] left-[calc(50%-180px)] -translate-x-1/2 lg:left-[0%] w-max'}/>
+        <ProjectCard name={projectsData[1].name} url={projectsData[1].url} imgUrl={projectsData[1].imgUrl} tech={projectsData[1].tech} idx={2} className={'sticky top-[10%] left-[calc(50%-180px)] -translate-x-1/2 lg:left-[33%] xl:left-[38%] w-max'}/>
+        <ProjectCard name={projectsData[0].name} url={projectsData[0].url} imgUrl={projectsData[0].imgUrl} tech={projectsData[0].tech} idx={3} className={'sticky top-[10%] left-[calc(50%-180px)] -translate-x-1/2 lg:left-[100%] w-max'}/>
+
       </section>
+        <Link className={'mx-auto mt-8 border px-6 py-3 border-white/40 text-white/80 w-max block' }>
+          View More
+        </Link>
     </section>
   )
 }
@@ -89,7 +94,7 @@ const ProjectCard = ({name, url, tech, idx, className, imgUrl})=>{
     }
   }
   return(
-    <motion.aside ref={ref} initial='initial' animate={isInView ? 'animate' : 'exit'} exit='exit' variants={projectCardVariant} className={`p-4 ${className} overflow-hidden`}>
+    <motion.aside ref={ref} initial='initial' animate={isInView ? 'animate' : 'exit'} exit='exit' variants={projectCardVariant} className={`p-4 ${className} overflow-hidden block`}>
       <figure className='project-card p-[10px] w-[320px] h-[400px] border back-900 border-[rgba(251,250,243,0.2)] relative '>
         <img src="/images/cross.png" alt="" className='absolute -top-[5px] -left-[5px]' /> 
         <img src="/images/cross.png" alt="" className='absolute -top-[5px] -right-[5px]' /> 

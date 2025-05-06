@@ -37,7 +37,7 @@ const Home = () => {
           </div>
           <span>PER</span>
         </div>
-        <div className="w-full md:w-4/5 ff-gs-regular text-base flex items-start justify-start text-light opacity-70 pl-10 pr-4 md:pl-6 relative top-8 md:top-16">
+        <div className="w-[90%] md:w-4/5 ff-gs-regular text-base flex items-start justify-start text-light opacity-70 pl-10 pr-4 md:pl-6 relative top-4 md:top-16">
           <div className="relative">
             <div className="absolute -left-5 top-[10px] flex gap-1">
               <div className="h-1 w-1 rounded-full bg-light-900"></div>

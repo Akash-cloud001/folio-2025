@@ -36,7 +36,8 @@
     font-size: 2rem;
     left: 1.6em;
     top: 50%;
-    color: #fbfaf3;
+    color: white;
+    mix-blend-mode: difference;
   }
   .face-title {
     font-family: "betatron";
