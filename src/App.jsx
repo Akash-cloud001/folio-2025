@@ -21,7 +21,7 @@ function App() {
           <Route index element={<UiLayout />} />
         </Routes>
       </AnimatePresence>
-      <section className="fixed z-50 min-w-fit right-8 sm:right-auto sm:left-1/2 sm:-translate-x-1/2 bottom-8 sm:bottom-10">
+      <section className="fixed z-50 min-w-fit right-8 sm:right-auto sm:left-1/2 sm:-translate-x-1/2 bottom-6">
         <FloatingDock />
       </section>
     </main>

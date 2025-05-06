@@ -48,15 +48,10 @@ const Projects = () => {
               <p className='uppercase ff-betatron text-nowrap text-stroke absolute z-0 left-1 top-1'>MY WORK</p>
             </div>
           </div>
-          {/* <motion.section style={{top}} className='project-scroller h-[300vh] w-full bg-transparent absolute z-[1] grid grid-cols-3'> */}
-            {/* <ProjectCard name={projectsData[1].name} url={projectsData[1].imgUrl} tech={projectsData[1].tech} idx={2} className={'relative top-1/3'}/>
-            <ProjectCard name={projectsData[0].name} url={projectsData[0].imgUrl} tech={projectsData[0].tech} idx={3} className={'relative top-2/3' }/> */}
-          {/* </motion.section> */}
         </section>
-        <ProjectCard name={projectsData[2].name} url={projectsData[2].url} imgUrl={projectsData[2].imgUrl} tech={projectsData[2].tech} idx={1} className={'sticky top-[20%] left-[0%] -translate-x-1/2 w-max'}/>
-        <ProjectCard name={projectsData[1].name} url={projectsData[1].url} imgUrl={projectsData[1].imgUrl} tech={projectsData[1].tech} idx={2} className={'sticky top-[20%] left-[25%] lg:left-[34%] xl:left-[38%] -translate-x-1/2 w-max'}/>
-        <ProjectCard name={projectsData[0].name} url={projectsData[0].url} imgUrl={projectsData[0].imgUrl} tech={projectsData[0].tech} idx={3} className={'sticky top-[20%] left-[75%] lg:left-[100%] -translate-x-1/2 w-max'}/>
-        {/* <ProjectCard name={projectsData[2].name} url={projectsData[2].imgUrl} tech={projectsData[2].tech} idx={1} className={'sticky top-[20%] '}/> */}
+        <ProjectCard name={projectsData[2].name} url={projectsData[2].url} imgUrl={projectsData[2].imgUrl} tech={projectsData[2].tech} idx={1} className={'sticky top-[20%] left-[20%] lg:left-[0%] -translate-x-1/2 w-max'}/>
+        <ProjectCard name={projectsData[1].name} url={projectsData[1].url} imgUrl={projectsData[1].imgUrl} tech={projectsData[1].tech} idx={2} className={'sticky top-[20%] left-[20%] lg:left-[34%] xl:left-[38%] -translate-x-1/2 w-max'}/>
+        <ProjectCard name={projectsData[0].name} url={projectsData[0].url} imgUrl={projectsData[0].imgUrl} tech={projectsData[0].tech} idx={3} className={'sticky top-[20%] left-[20%] lg:left-[100%] -translate-x-1/2 w-max'}/>
       </section>
     </section>
   )

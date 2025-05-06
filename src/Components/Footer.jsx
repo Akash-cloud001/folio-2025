@@ -8,7 +8,6 @@ const Footer = () => {
                 am <span  className='text-stroke'>glad</span> that <span className='text-stroke'>you</span> <br /> came this far <br /> thank you
             </p>
             <ul className='hidden md:flex items-center justify-center gap-3 lg:gap-6'>
-                <li><a href="#" target='_blank'><img className='h-10 lg:h-12 w-10 lg:w-12' src="/images/email.png" alt="social link" /></a></li>
                 <li><a href="#" target='_blank'><img className='h-10 lg:h-12 w-10 lg:w-12' src="/images/X.png" alt="social link" /></a></li>
                 <li><a href="#" target='_blank'><img className='h-10 lg:h-12 w-10 lg:w-12' src="/images/linkedIn.png" alt="social link" /></a></li>
                 <li><a href="#" target='_blank'><img className='h-10 lg:h-12 w-10 lg:w-12' src="/images/github.png" alt="social link" /></a></li>
@@ -24,7 +23,6 @@ const Footer = () => {
             </div>
         </article>
         <ul className='flex md:hidden items-center justify-center gap-4 mt-12 pb-10'>
-                <li><a href="#" target='_blank'><img className='h-8 w-8' src="/images/email.png" alt="social link" /></a></li>
                 <li><a href="#" target='_blank'><img className='h-8 w-8' src="/images/X.png" alt="social link" /></a></li>
                 <li><a href="#" target='_blank'><img className='h-8 w-8' src="/images/linkedIn.png" alt="social link" /></a></li>
                 <li><a href="#" target='_blank'><img className='h-8 w-8' src="/images/github.png" alt="social link" /></a></li>
