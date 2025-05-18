@@ -1,5 +1,4 @@
 import React, { useRef } from 'react'
-import Heading from '../ui/Heading'
 import {motion, useInView, useScroll, useTransform} from 'motion/react'
 import { Gravity, MatterBody } from "../ui/gravity";
 import { Link } from 'react-router-dom';
@@ -58,10 +57,13 @@ const Projects = () => {
       </section>
         
         <Magnetic>
-          <Link className={'mx-auto mt-8 border px-6 py-3 border-white/40 text-white/80 w-max block' }>
+          <Link className={'mx-auto mt-8 border px-6 py-3 border-white/40 text-white/80 w-max hidden sm:block' }>
             View More
           </Link>
         </Magnetic>
+        <Link className={'mx-auto mt-8 border px-6 py-3 border-white/40 text-white/80 w-max block sm:hidden' }>
+            View More
+        </Link>
     </section>
   )
 }
