@@ -305,3 +305,14 @@ body{
     clip: rect(267px, 9999px, 16px, 0px);
   }
 }
+
+
+.project-shadow-text {
+  left: 4px;
+  top: 12px;
+}
+
+.project-name:hover .project-shadow-text {
+  left: 0px;
+  top: 16px;
+}

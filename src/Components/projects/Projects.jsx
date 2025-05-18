@@ -3,6 +3,7 @@ import Heading from '../ui/Heading'
 import {motion, useInView, useScroll, useTransform} from 'motion/react'
 import { Gravity, MatterBody } from "../ui/gravity";
 import { Link } from 'react-router-dom';
+import { Magnetic } from '../ui/magnetic';
 const projectsData=[
   {
     name: 'Anipedia',
@@ -50,14 +51,17 @@ const Projects = () => {
             </div>
           </div>
         </section>
-        <ProjectCard name={projectsData[2].name} url={projectsData[2].url} imgUrl={projectsData[2].imgUrl} tech={projectsData[2].tech} idx={1} className={'sticky top-[10%] left-[calc(50%-180px)] -translate-x-1/2 lg:left-[0%] w-max'}/>
-        <ProjectCard name={projectsData[1].name} url={projectsData[1].url} imgUrl={projectsData[1].imgUrl} tech={projectsData[1].tech} idx={2} className={'sticky top-[10%] left-[calc(50%-180px)] -translate-x-1/2 lg:left-[33%] xl:left-[38%] w-max'}/>
-        <ProjectCard name={projectsData[0].name} url={projectsData[0].url} imgUrl={projectsData[0].imgUrl} tech={projectsData[0].tech} idx={3} className={'sticky top-[10%] left-[calc(50%-180px)] -translate-x-1/2 lg:left-[100%] w-max'}/>
+        <ProjectCard name={projectsData[2].name} url={projectsData[2].url} imgUrl={projectsData[2].imgUrl} tech={projectsData[2].tech} idx={1} className={'sticky top-[12%] left-[calc(50%-180px)] -translate-x-1/2 mt-4 w-max'}/>
+        <ProjectCard name={projectsData[1].name} url={projectsData[1].url} imgUrl={projectsData[1].imgUrl} tech={projectsData[1].tech} idx={2} className={'sticky top-[12%] left-[calc(50%-180px)] -translate-x-1/2 mt-10 w-max'}/>
+        <ProjectCard name={projectsData[0].name} url={projectsData[0].url} imgUrl={projectsData[0].imgUrl} tech={projectsData[0].tech} idx={3} className={'sticky top-[12%] left-[calc(50%-180px)] -translate-x-1/2 mt-10 w-max'}/>
 
       </section>
-        <Link className={'mx-auto mt-8 border px-6 py-3 border-white/40 text-white/80 w-max block' }>
-          View More
-        </Link>
+        
+        <Magnetic>
+          <Link className={'mx-auto mt-8 border px-6 py-3 border-white/40 text-white/80 w-max block' }>
+            View More
+          </Link>
+        </Magnetic>
     </section>
   )
 }
@@ -101,10 +105,10 @@ const ProjectCard = ({name, url, tech, idx, className, imgUrl})=>{
         <img src="/images/cross.png" alt="" className='absolute -bottom-[5px] -left-[5px]' /> 
         <img src="/images/cross.png" alt="" className='absolute -bottom-[5px] -right-[5px]' /> 
         <img src={imgUrl} alt="pro-image" className='w-full h-[160px] object-cover object-top'/>
-        <a target='_blank' href={url} className='bg-transparent  w-full z-20'>
-          <div className='relative text-4xl w-max h-fit mx-auto pt-4 flex gap-1 text-primary z-50'>
+        <a target='_blank' href={url} className='bg-transparent  w-full z-20 project-name'>
+          <div className='relative text-4xl w-max h-fit mx-auto pt-4 flex gap-1 text-primary z-50 '>
                 <p className='uppercase ff-betatron  z-[1]'>{name}</p>
-                <p className='uppercase ff-betatron text-nowrap text-stroke-red absolute z-0 left-1 top-3'>{name}</p>
+                <p className='uppercase ff-betatron text-nowrap text-stroke-red absolute z-0  project-shadow-text transition-all duration-200'>{name}</p>
                 <div className='relative'>
                 <sub className='relative -top-5  text-base'>[0{idx}]</sub>
                 </div>
