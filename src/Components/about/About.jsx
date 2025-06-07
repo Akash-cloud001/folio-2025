@@ -10,32 +10,22 @@ const About = () => {
     offset: ["start end", "end start"],
   });
 
-  // Create smooth transitions for different sections
-  // First 25% (0-50vh): #0a0a0a
-  // Middle 50% (50-150vh): #fbfaf3
-  // Last 25% (150-200vh): #0a0a0a
-
-  const backgroundColor = useTransform(
-    scrollYProgress,
-    [0.3, 0.4, 0.75, 0.8],
-    ["#0a0a0a", "#fbfaf3", "#fbfaf3", "#0a0a0a"]
-  );
-
   return (
     <motion.section
       ref={containerRef}
       id="about"
       className="min-h-screen w-full padding-top-nav px-5 sm:px-8 relative max-w-container"
     >
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border border-white/20 w-3/5 h-96">
+      <div className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border border-white/20 w-3/5 h-96">
+        <img src="/images/my_img.png" alt="my img" className="absolute -top-[280px] -2xl:top-[300px] left-1/2 -translate-x-1/2 w-36 h-auto aspect-square rounded-full object-cover custom-drop-shadow hover:scale-105 transition-all duration-300" />
 
         <YearCard
           year={2025}
           content={[
             "Worked at Evomorf - March",
             "Started freelancing. Till now 3 😇 clients.",
-            `'Became a partner in a startup'<a href="https://nestingo.com" target="_blank"> @nestingo</a>`,
-            "Started Learning Japanese",
+            `Became a partner <a className="font-semibold" href="https://nestingo.com" target="_blank"> @nestingo</a>.`,
+            "Started Learning 🇯🇵 Japanese.",
           ]}
           imgUrl="/images/firstCard.png"
           scale={1}
@@ -66,7 +56,7 @@ const About = () => {
         <YearCard
           year={"REST..."}
           content={[
-            `Watching ANIME is the how I spend my free time. <a href='https://myanimelist.net/animelist/fatfck' target='_blank'>@my_fav_list</a>.`,
+            `Watching anime is the how I spend my free time. <a href='https://myanimelist.net/animelist/fatfck' target='_blank'>@my_fav_list</a>.`,
             "Taking Challenges on is what keeps me motivated.",
             "Spending good time with loved once is the best time for me.",
           ]}
@@ -75,10 +65,67 @@ const About = () => {
           className="absolute -bottom-32 -right-32"
         />
       </div>
-      <p className="ff-betatron text-[64px] w-max absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <p className="hidden lg:block ff-betatron text-[64px] w-max absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <p className='uppercase ff-betatron  z-[1]'>ABOUT ME</p>
         <p className='uppercase ff-betatron text-nowrap text-stroke absolute z-0 left-1 top-1'>ABOUT ME</p>
       </p>
+
+
+
+      {/* mobile view */}
+      <div className="flex flex-col gap-8 items-center justify-center lg:hidden">
+        <header className="flex flex-col gap-4 items-center justify-center">
+            <img src="/images/my_img.png" alt="my img" className="w-36 h-auto aspect-square rounded-full object-cover custom-drop-shadow hover:scale-105 transition-all duration-300" />
+            <p className="ff-betatron text-[44px] w-max relative">
+            <p className='uppercase ff-betatron  z-[1]'>ABOUT ME</p>
+            <p className='uppercase ff-betatron text-nowrap text-stroke absolute z-0 left-1 top-1'>ABOUT ME</p>
+          </p>            
+        </header>
+
+        <div className="flex flex-col gap-10 items-center justify-center ">
+          <YearCard
+            year={2025}
+            content={[
+              "Worked at Evomorf - March",
+              "Started freelancing. Till now 3 😇 clients.",
+              `Became a partner <a href="https://nestingo.com" target="_blank"> @nestingo</a>.`,
+              "Started Learning 🇯🇵 Japanese.",
+            ]}
+            imgUrl="/images/firstCard.png"
+            className="px-4"
+          />
+          <YearCard
+            year={2024}
+            content={[
+              "Started Working in Evomorf. As ui designer & developer.",
+              "Participated in Hacktoberfest 2024.",
+              `Won First Prize in Desiging a web template using AI <a href="https://webcrumbs.org" target="_blank">   @webcrumbs.org</a>`,
+            ]}
+            imgUrl="/images/secondCard.png"
+            className="px-4"
+          />
+          <YearCard
+            year={2023}
+            content={[
+              "Internship at Accenture",
+              `Graduated in B.Tech CSE with <span class="text-primary">8.34CGPA</span>.`,
+              "Software Developer Trainee at HummingBird Web Solution.",
+            ]}
+            imgUrl="/images/thirdCard.png"
+            className="px-4"
+          />
+          <YearCard
+            year={"REST..."}
+            content={[
+              `Watching anime is the how I spend my free time. <a href='https://myanimelist.net/animelist/fatfck' target='_blank'>@my_fav_list</a>.`,
+              "Taking Challenges on is what keeps me motivated.",
+              "Spending good time with loved once is the best time for me.",
+            ]}
+            imgUrl="/images/fourthCard.png"
+            className="px-4"
+          />
+        </div>
+      </div>
     </motion.section>
   );
 };

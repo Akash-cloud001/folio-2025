@@ -13,8 +13,8 @@ const NavBar = () => {
   const navItems = [
     {
       name: 'About',
-      href: '/about',
-      isRoute: true
+      href: 'about',
+      isRoute: false
     },
     {
       name: 'My Work',
@@ -38,7 +38,7 @@ const NavBar = () => {
           <figure className='w-20 h-auto flex items-center justify-center'>
             <AkashLogo className='w-full h-full'/>
           </figure>
-          <ul className='flex items-center justify-center gap-8 ff-betatron text-sm leading-relaxed'>
+          <ul className='flex items-center justify-center gap-4 sm:gap-8 ff-betatron text-sm leading-relaxed'>
             {navItems.map((item, index)=>{
               return(
                 <li key={index} className='relative hover:text-primary transition-all duration-300 scale-100 hover:scale-105 uppercase'>
