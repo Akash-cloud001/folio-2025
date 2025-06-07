@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <section className='h-[70dvh] w-full px-5 md:px-8 flex flex-col md:flex-row items-center justify-between padding-top-nav mb-10' style={{marginTop:'8rem'}}>
+    <section className='h-[70dvh] w-full px-5 md:px-8 flex flex-col md:flex-row items-center justify-between padding-top-nav mb-10 max-w-container' style={{marginTop:'8rem'}}>
         <article className='h-full w-full flex flex-col items-center md:items-start justify-between'>
             <p className='ff-betatron text-3xl sm:text-[44px] sm:leading-[44px] lg:leading-[72px] lg:text-[64px] uppercase text-center md:text-left'>
                 am <span  className='text-stroke'>glad</span> that <span className='text-stroke'>you</span> <br /> came this far <br /> thank you

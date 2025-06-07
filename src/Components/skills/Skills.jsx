@@ -3,7 +3,7 @@ import InfiniteMenu from '../InfiniteMenu/InfiniteMenu'
 import Heading from '../ui/Heading'
 const Skills = () => {
   return (
-    <section id='skills' className='skills-container h-[100dvh-96px] sm:h-[100dvh-192px] w-full padding-top-nav'> 
+    <section id='skills' className='skills-container h-[100dvh-96px] sm:h-[100dvh-192px] w-full padding-top-nav max-w-container'> 
         <Heading name='skills' />
       <div style={{ position: 'relative', }} className='mx-auto w-[90%] sm:w-[95%]  rounded-2xl overflow-hidden h-[75vh] '>
         <InfiniteMenu items={items} />

@@ -40,7 +40,7 @@ const Projects = () => {
   const y = useTransform(scrollYProgress, [0, 0.8], ['0%', '-100%']);
   const top = useTransform(scrollYProgress, [0, 0.9], ['100%', '-200%']);
   return (
-    <section id='work' className='h-auto w-full md:padding-top-nav px-5 sm:px-8'>
+      <section id='work' className='h-auto w-full md:padding-top-nav px-5 sm:px-8 max-w-container'>
       <section ref={ref} className='h-[350vh] w-full project-container relative ' >
         <section className='project-main-frame h-[100vh] w-full sticky top-0 overflow-hidden flex items-center justify-center'>
           <div className='w-max'>
