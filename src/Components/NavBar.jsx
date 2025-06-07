@@ -3,22 +3,33 @@ import AkashLogo from './svgs/AkashLogo'
 import { Link } from 'react-router-dom'
 
 const NavBar = () => {
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const navItems = [
     {
       name: 'About',
-      href: '/about'
+      href: '/about',
+      isRoute: true
     },
     {
       name: 'My Work',
-      href: '/work'
+      href: 'work',
+      isRoute: false
     },
     {
       name: 'Skills',
-      href: '/skills'
+      href: 'skills',
+      isRoute: false
     },
     {
       name:'Blogs',
-      href: '/blogs'
+      href: '/blogs',
+      isRoute: true
     }
   ]
   return (
@@ -27,11 +38,20 @@ const NavBar = () => {
           <figure className='w-20 h-auto flex items-center justify-center'>
             <AkashLogo className='w-full h-full'/>
           </figure>
-          <ul className='flex items-center justify-center gap-8 ff-betatron text-sm uppercase leading-relaxed'>
+          <ul className='flex items-center justify-center gap-8 ff-betatron text-sm leading-relaxed'>
             {navItems.map((item, index)=>{
               return(
-                <li key={index} className='relative hover:text-primary transition-all duration-300 scale-100 hover:scale-105'>
-                  <Link to={item.href}>{item.name}</Link>
+                <li key={index} className='relative hover:text-primary transition-all duration-300 scale-100 hover:scale-105 uppercase'>
+                  {item.isRoute ? (
+                    <Link to={item.href}>{item.name}</Link>
+                  ) : (
+                    <button 
+                      onClick={() => scrollToSection(item.href)}
+                      className="focus:outline-none uppercase"
+                    >
+                      {item.name}
+                    </button>
+                  )}
                 </li>
               )
             })}

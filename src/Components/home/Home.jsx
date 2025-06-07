@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <section onMouseMove={handleMouseMove} className="home-container relative h-dvh w-full flex flex-col-reverse md:flex-row items-start justify-center md:items-center md:justify-center overflow-hidden pt-[64px] md:pt-0" >
       <article className="hero-left w-full md:w-3/4 h-full ff-betatron flex items-start justify-center pl-2 md:pl-6 flex-col relative z-[1] select-none -top-[2%] sm:-top-[25%] -translate-y-1/2 md:translate-y-0  md:top-auto">
-        <div className="flex items-center justify-start text-light text-7xl sm:text-[120px] md:text-[100px] lg:text-[120px] xl:text-[150px]">
+        <div className="flex items-center justify-start text-white text-7xl sm:text-[120px] md:text-[100px] lg:text-[120px] xl:text-[150px]">
           <motion.div className="headPhone h-[76px] w-[76px] sm:h-[120px] sm:w-[120px] md:h-[100px] md:w-[100px]  lg:h-[140px]  lg:w-[140px]" style={{rotate: mouseY, transformOrigin:'left center'}} >
             <img
               src="/svgs/headphone.svg"
@@ -37,7 +37,7 @@ const Home = () => {
           </div>
           <span>PER</span>
         </div>
-        <div className="w-[90%] md:w-4/5 ff-gs-regular text-base flex items-start justify-start text-light opacity-70 pl-10 pr-4 md:pl-6 relative top-4 md:top-16">
+        <div className="w-[90%] md:w-4/5 ff-gs-regular text-base flex items-start justify-start text-white opacity-70 pl-10 pr-4 md:pl-6 relative top-4 md:top-16">
           <div className="relative">
             <div className="absolute -left-5 top-[10px] flex gap-1">
               <div className="h-1 w-1 rounded-full bg-light-900"></div>
