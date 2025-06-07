@@ -16,7 +16,7 @@ function App() {
   const location = useLocation();
 
   return (
-    <main className="main-container pb-4">
+    <main className="main-container pb-4  mx-auto">
       <NavBar />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
