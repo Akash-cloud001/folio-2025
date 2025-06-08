@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 import { FloatingDock } from "./Components/FloatingDock";
@@ -13,8 +13,15 @@ import Footer from "./Components/Footer";
 function App() {
   useLenisSmoothScroll()
   const [count, setCount] = useState(0);
+  const [isFooter, setIsFooter] = useState(false);
   const location = useLocation();
-
+  useEffect(() => {
+    if(location.pathname === "/blogs"){
+      setIsFooter(false);
+    }else{
+      setIsFooter(true);
+    }
+  }, [location]);
   return (
     <main className="main-container pb-4  mx-auto">
       <NavBar />
@@ -24,7 +31,7 @@ function App() {
           <Route path="/blogs" element={<Blogs />} />
         </Routes>
       </AnimatePresence>
-      <Footer />
+      {isFooter && <Footer />}
 
       {/* <section className="fixed z-50 min-w-fit right-8 sm:right-auto sm:left-1/2 sm:-translate-x-1/2 bottom-6">
         <FloatingDock />
