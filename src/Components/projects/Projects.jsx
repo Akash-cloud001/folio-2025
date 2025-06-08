@@ -4,30 +4,31 @@ import { Gravity, MatterBody } from "../ui/gravity";
 import { Link } from 'react-router-dom';
 import { Magnetic } from '../ui/magnetic';
 const projectsData=[
-  {
-    name: 'Anipedia',
-    url: 'https://ani-pedia.web.app/',
-    imgUrl: '/images/pro-1.jpeg',
-    videoUrl:'',
-    backgroundFrame: 'red',
-    tech: ['HTML','CSS','react', 'tailwind', "api's"],
-    desc: "AniPedia is a web application designed for anime enthusiasts, offering up-to-date information on currently airing anime and top performers. Leveraging the Jikan API, it provides detailed insights into various anime series. Users can search for specific anime, watch trailers via YouTube, and find platforms where they can stream their chosen series."
-  },
+  // {
+  //   name: 'Anipedia',
+  //   url: 'https://ani-pedia.web.app/',
+  //   imgUrl: '/images/pro-1.jpeg',
+  //   tech: ['HTML','CSS','react', 'tailwind', "api's"],
+  //   desc: "AniPedia is a web application designed for anime enthusiasts, offering up-to-date information on currently airing anime and top performers. Leveraging the Jikan API, it provides detailed insights into various anime series. Users can search for specific anime, watch trailers via YouTube, and find platforms where they can stream their chosen series."
+  // },
   {
     name: 'Solar System',
     url: 'https://solar-system-00.web.app/',
     imgUrl: '/images/pro-2.jpeg',
-    videoUrl:'',
-    backgroundFrame: '',
     tech: ['react', 'threeJs','r3f','drei','css','figma'],
     desc:"The Solar System project is an interactive 3D visualization of our solar system, developed using React, React Three Fiber (R3F), Three.js, and Drei. This application offers users an immersive experience, allowing them to explore the planets and their orbits in a visually appealing manner."
+  },
+  {
+    name: 'Prodigy',
+    url: 'https://prodigyfootball.com.au/',
+    imgUrl: '/images/pro-4.png',
+    tech: ['React', 'TailwindCSS', 'Motion', 'Node.js', 'Stripe'],
+    desc: 'A professional football coaching platform that bridges the gap between grassroots and elite level training. The website features dynamic booking systems for private sessions, team coaching programs, and high-performance academies. Built with modern web technologies to provide seamless user experience for players, coaches, and clubs across Australia. Includes real-time scheduling, payment processing, progress tracking, and interactive training modules designed to develop well-rounded and intelligent community footballers through specialized coaching methodologies.'
   },
   {
     name: 'Akash Folio',
     url: 'https://google.com',
     imgUrl: '/images/pro-3.jpeg',
-    videoUrl:'',
-    backgroundFrame: '',
     tech: ['react', 'threeJs','r3f','drei','tailwind','acternity ui', 'react-bits', 'lenis'],
     desc: 'This portfolio website is a visually stunning and interactive showcase built using React, Three.js, React Three Fiber (R3F), Drei, Acternity UI, and React Bit for seamless 3D component integration. It features dynamic 3D elements, smooth animations, and an intuitive UI, offering an immersive experience. The site highlights my projects, skills, and achievements in a modern and engaging way.',
   },
@@ -39,9 +40,19 @@ const Projects = () => {
   })
   const y = useTransform(scrollYProgress, [0, 0.8], ['0%', '-100%']);
   const top = useTransform(scrollYProgress, [0, 0.9], ['100%', '-200%']);
+  const floatingVariants = {
+    animate: {
+      y: [-10, 10, -10],
+      transition: {
+        duration: 4,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
+    }
+  };
   return (
       <section id='work' className='h-auto w-full md:padding-top-nav px-5 sm:px-8 max-w-container'>
-      <section ref={ref} className='h-[350vh] w-full project-container relative ' >
+      <section ref={ref} className='h-[300vh] w-full project-container relative ' >
         <section className='project-main-frame h-[100vh] w-full sticky top-0 overflow-hidden flex items-center justify-center'>
           <div className='w-max'>
             <div className='relative text-[64px] w-max h-fit'>
@@ -49,15 +60,33 @@ const Projects = () => {
               <p className='uppercase ff-betatron text-nowrap text-stroke absolute z-0 left-1 top-1'>MY WORK</p>
             </div>
           </div>
+          <motion.div
+            variants={floatingVariants}
+            animate="animate"
+            className="absolute top-20 left-20 w-20 h-20 border border-violet-500/20 rotate-45"
+          />
+          <motion.div
+            variants={floatingVariants}
+            animate="animate"
+            style={{ animationDelay: '1s' }}
+            className="absolute top-40 right-32 w-16 h-16 bg-gradient-to-r from-violet-500/10 to-purple-500/10 rounded-full"
+          />
+          <motion.div
+            variants={floatingVariants}
+            animate="animate"
+            style={{ animationDelay: '2s' }}
+            className="absolute bottom-32 left-40 w-12 h-12 border-2 border-amber-400/20 rounded-full"
+      />
+
         </section>
-        <ProjectCard name={projectsData[2].name} url={projectsData[2].url} imgUrl={projectsData[2].imgUrl} tech={projectsData[2].tech} idx={1} className={'sticky top-[12%] left-[calc(50%-180px)] -translate-x-1/2 mt-4 w-max'}/>
-        <ProjectCard name={projectsData[1].name} url={projectsData[1].url} imgUrl={projectsData[1].imgUrl} tech={projectsData[1].tech} idx={2} className={'sticky top-[12%] left-[calc(50%-180px)] -translate-x-1/2 mt-10 w-max'}/>
-        <ProjectCard name={projectsData[0].name} url={projectsData[0].url} imgUrl={projectsData[0].imgUrl} tech={projectsData[0].tech} idx={3} className={'sticky top-[12%] left-[calc(50%-180px)] -translate-x-1/2 mt-10 w-max'}/>
+        <ProjectCard name={projectsData[2].name} url={projectsData[2].url} imgUrl={projectsData[2].imgUrl} tech={projectsData[2].tech} idx={1} className={'sticky top-[25%] left-[calc(50%-180px)] -translate-x-1/2 mt-4 w-max'}/>
+        <ProjectCard name={projectsData[1].name} url={projectsData[1].url} imgUrl={projectsData[1].imgUrl} tech={projectsData[1].tech} idx={2} className={'sticky top-[25%] left-[calc(50%-180px)] -translate-x-1/2 mt-10 w-max'}/>
+        <ProjectCard name={projectsData[0].name} url={projectsData[0].url} imgUrl={projectsData[0].imgUrl} tech={projectsData[0].tech} idx={3} className={'sticky top-[25%] left-[calc(50%-180px)] -translate-x-1/2 mt-10 w-max'}/>
 
       </section>
         
         <Magnetic>
-          <Link className={'mx-auto mt-8 border px-6 py-3 border-white/40 text-white/80 w-max hidden sm:block' }>
+          <Link className={'mx-auto mt-8 border px-6 py-3 border-white/40 text-white/80 w-max hidden sm:block hover:bg-white/10 transition-all duration-300' }>
             View More
           </Link>
         </Magnetic>
