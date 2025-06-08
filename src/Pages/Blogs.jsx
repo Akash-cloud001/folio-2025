@@ -1,8 +1,10 @@
 import React from 'react'
+import ComingSoon from '../Components/ui/ComingSoon'
 
 const Blogs = () => {
   return (
-    <div>Blogs</div>
+      <ComingSoon />
+      
   )
 }
 
