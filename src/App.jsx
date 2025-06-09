@@ -23,6 +23,11 @@ function App() {
     }else{
       setIsFooter(true);
     }
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
   }, [location]);
   return (
     <main className="main-container pb-4  mx-auto">
