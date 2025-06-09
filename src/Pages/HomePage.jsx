@@ -2,7 +2,7 @@ import React from 'react'
 import Projects from '../Components/projects/Projects'
 import Skills from '../Components/skills/Skills'
 import Home from '../Components/home/Home'
-import About from '../Components/about/about'
+import About from '../Components/about/About'
 const HomePage = () => {
   return (
     <>
