@@ -8,7 +8,9 @@ import NavBar from "./Components/NavBar";
 import useLenisSmoothScroll from "./hooks/useLenisSmoothScroll";
 import Home from "./Pages/HomePage";
 import Blogs from "./Pages/Blogs";
+import Project from "./Pages/Project"
 import Footer from "./Components/Footer";
+import Works from "./Pages/Works";
 
 function App() {
   useLenisSmoothScroll()
@@ -28,6 +30,8 @@ function App() {
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route index element={<Home />} />
+          <Route path="/my-works" element={<Works />} />
+          <Route path="/my-works/:id" element={<Project />} />
           <Route path="/blogs" element={<Blogs />} />
         </Routes>
       </AnimatePresence>

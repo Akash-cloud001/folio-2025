@@ -3,32 +3,26 @@ import {motion, useInView, useScroll, useTransform} from 'motion/react'
 import { Gravity, MatterBody } from "../ui/gravity";
 import { Link } from 'react-router-dom';
 import { Magnetic } from '../ui/magnetic';
+import ProjectCard from '../ui/ProjectCard';
 const projectsData=[
-  // {
-  //   name: 'Anipedia',
-  //   url: 'https://ani-pedia.web.app/',
-  //   imgUrl: '/images/pro-1.jpeg',
-  //   tech: ['HTML','CSS','react', 'tailwind', "api's"],
-  //   desc: "AniPedia is a web application designed for anime enthusiasts, offering up-to-date information on currently airing anime and top performers. Leveraging the Jikan API, it provides detailed insights into various anime series. Users can search for specific anime, watch trailers via YouTube, and find platforms where they can stream their chosen series."
-  // },
   {
     name: 'Solar System',
     url: 'https://solar-system-00.web.app/',
-    imgUrl: '/images/pro-2.jpeg',
+    imgUrl: '/images/projects/pro-2.jpeg',
     tech: ['react', 'threeJs','r3f','drei','css','figma'],
     desc:"The Solar System project is an interactive 3D visualization of our solar system, developed using React, React Three Fiber (R3F), Three.js, and Drei. This application offers users an immersive experience, allowing them to explore the planets and their orbits in a visually appealing manner."
   },
   {
     name: 'Prodigy',
     url: 'https://prodigyfootball.com.au/',
-    imgUrl: '/images/pro-4.png',
+    imgUrl: '/images/projects/pro-4.png',
     tech: ['React', 'TailwindCSS', 'Motion', 'Node.js', 'Stripe'],
     desc: 'A professional football coaching platform that bridges the gap between grassroots and elite level training. The website features dynamic booking systems for private sessions, team coaching programs, and high-performance academies. Built with modern web technologies to provide seamless user experience for players, coaches, and clubs across Australia. Includes real-time scheduling, payment processing, progress tracking, and interactive training modules designed to develop well-rounded and intelligent community footballers through specialized coaching methodologies.'
   },
   {
     name: 'Akash Folio',
     url: 'https://google.com',
-    imgUrl: '/images/pro-3.jpeg',
+    imgUrl: '/images/projects/pro-3.jpeg',
     tech: ['react', 'threeJs','r3f','drei','tailwind','acternity ui', 'react-bits', 'lenis'],
     desc: 'This portfolio website is a visually stunning and interactive showcase built using React, Three.js, React Three Fiber (R3F), Drei, Acternity UI, and React Bit for seamless 3D component integration. It features dynamic 3D elements, smooth animations, and an intuitive UI, offering an immersive experience. The site highlights my projects, skills, and achievements in a modern and engaging way.',
   },
@@ -86,11 +80,11 @@ const Projects = () => {
       </section>
         
         <Magnetic>
-          <Link className={'mx-auto mt-8 border px-6 py-3 border-white/40 text-white/80 w-max hidden sm:block hover:bg-white/10 transition-all duration-300' }>
+          <Link to={'/my-works'} className={'mx-auto mt-8 border px-6 py-3 border-white/40 text-white/80 w-max hidden sm:block hover:bg-white/10 transition-all duration-300' }>
             View More
           </Link>
         </Magnetic>
-        <Link className={'mx-auto mt-8 border px-6 py-3 border-white/40 text-white/80 w-max block sm:hidden' }>
+        <Link  to={'/my-works'}className={'mx-auto mt-8 border px-6 py-3 border-white/40 text-white/80 w-max block sm:hidden' }>
             View More
         </Link>
     </section>
@@ -100,68 +94,68 @@ const Projects = () => {
 export default Projects
 
 
-const ProjectCard = ({name, url, tech, idx, className, imgUrl})=>{
+// const ProjectCard = ({name, url, tech, idx, className, imgUrl})=>{
   
-  const ref = useRef();
-  const  isInView = useInView(ref, {
-    margin: '-10%',
-    once: true
-  });
-  const projectCardVariant = {
-    initial: {
-      opacity: 0.75,
-      filter:'blur(20px)',
-      scale: 0.8
-    },
-    animate: {
-      opacity: 1,
-      filter:'blur(0)',
-      scale: 1,
-      transition:{
-        duration: 0.5,
-        // ease: 'ease'
-      }
-    },
-    exit: {
-      opacity: 0.75,
-      filter:'blur(20px)',
-      scale: 0.8
-    }
-  }
-  return(
-    <motion.aside ref={ref} initial='initial' animate={isInView ? 'animate' : 'exit'} exit='exit' variants={projectCardVariant} className={`p-4 ${className} overflow-hidden block`}>
-      <figure className='project-card p-[10px] w-[320px] h-[400px] border back-900 border-[rgba(251,250,243,0.2)] relative '>
-        <img src="/images/cross.png" alt="" className='absolute -top-[5px] -left-[5px]' /> 
-        <img src="/images/cross.png" alt="" className='absolute -top-[5px] -right-[5px]' /> 
-        <img src="/images/cross.png" alt="" className='absolute -bottom-[5px] -left-[5px]' /> 
-        <img src="/images/cross.png" alt="" className='absolute -bottom-[5px] -right-[5px]' /> 
-        <img src={imgUrl} alt="pro-image" className='w-full h-[160px] object-cover object-top'/>
-        <a target='_blank' href={url} className='bg-transparent  w-full z-20 project-name'>
-          <div className='relative text-4xl w-max h-fit mx-auto pt-4 flex gap-1 text-primary z-50 '>
-                <p className='uppercase ff-betatron  z-[1]'>{name}</p>
-                <p className='uppercase ff-betatron text-nowrap text-stroke-red absolute z-0  project-shadow-text transition-all duration-200'>{name}</p>
-                <div className='relative'>
-                <sub className='relative -top-5  text-base'>[0{idx}]</sub>
-                </div>
-          </div>
-        </a>
-        <Gravity gravity={{ x: 0, y: 1 }} className="w-full h-full">
-          {tech.map((item, idx)=>(
-              <MatterBody
-              key={idx}
-                matterBodyOptions={{ friction: 0.5, restitution: 0.2 }}
-                x= {String((idx+4) * 10)+'%'}
-                // y= {String((idx+1) * 10)+'%'}
-                y="10%"
-              >
-                <div className=" font-extralight text-xs uppercase bg-transparent border border-[#FBFAF3] rounded-full hover:cursor-pointer px-3 py-1">
-                  {item}
-                </div>
-              </MatterBody>
+//   const ref = useRef();
+//   const  isInView = useInView(ref, {
+//     margin: '-10%',
+//     once: true
+//   });
+//   const projectCardVariant = {
+//     initial: {
+//       opacity: 0.75,
+//       filter:'blur(20px)',
+//       scale: 0.8
+//     },
+//     animate: {
+//       opacity: 1,
+//       filter:'blur(0)',
+//       scale: 1,
+//       transition:{
+//         duration: 0.5,
+//         // ease: 'ease'
+//       }
+//     },
+//     exit: {
+//       opacity: 0.75,
+//       filter:'blur(20px)',
+//       scale: 0.8
+//     }
+//   }
+//   return(
+//     <motion.aside ref={ref} initial='initial' animate={isInView ? 'animate' : 'exit'} exit='exit' variants={projectCardVariant} className={`p-4 ${className} overflow-hidden block`}>
+//       <figure className='project-card p-[10px] w-[320px] h-[400px] border back-900 border-[rgba(251,250,243,0.2)] relative '>
+//         <img src="/images/cross.png" alt="" className='absolute -top-[5px] -left-[5px]' /> 
+//         <img src="/images/cross.png" alt="" className='absolute -top-[5px] -right-[5px]' /> 
+//         <img src="/images/cross.png" alt="" className='absolute -bottom-[5px] -left-[5px]' /> 
+//         <img src="/images/cross.png" alt="" className='absolute -bottom-[5px] -right-[5px]' /> 
+//         <img src={imgUrl} alt="pro-image" className='w-full h-[160px] object-cover object-top'/>
+//         <a target='_blank' href={url} className='bg-transparent  w-full z-20 project-name'>
+//           <div className='relative text-4xl w-max h-fit mx-auto pt-4 flex gap-1 text-primary z-50 '>
+//                 <p className='uppercase ff-betatron  z-[1]'>{name}</p>
+//                 <p className='uppercase ff-betatron text-nowrap text-stroke-red absolute z-0  project-shadow-text transition-all duration-200'>{name}</p>
+//                 <div className='relative'>
+//                 <sub className='relative -top-5  text-base'>[0{idx}]</sub>
+//                 </div>
+//           </div>
+//         </a>
+//         <Gravity gravity={{ x: 0, y: 1 }} className="w-full h-full">
+//           {tech.map((item, idx)=>(
+//               <MatterBody
+//               key={idx}
+//                 matterBodyOptions={{ friction: 0.5, restitution: 0.2 }}
+//                 x= {String((idx+4) * 10)+'%'}
+//                 // y= {String((idx+1) * 10)+'%'}
+//                 y="10%"
+//               >
+//                 <div className=" font-extralight text-xs uppercase bg-transparent border border-[#FBFAF3] rounded-full hover:cursor-pointer px-3 py-1">
+//                   {item}
+//                 </div>
+//               </MatterBody>
 
-          ))}
-        </Gravity>
-      </figure>
-    </motion.aside>
-  )
-}
+//           ))}
+//         </Gravity>
+//       </figure>
+//     </motion.aside>
+//   )
+// }

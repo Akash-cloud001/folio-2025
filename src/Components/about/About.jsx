@@ -65,10 +65,10 @@ const About = () => {
           className="absolute -bottom-32 -right-32"
         />
       </div>
-      <p className="hidden lg:block ff-betatron text-[64px] w-max absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div className="hidden lg:block ff-betatron text-[64px] w-max absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <p className='uppercase ff-betatron  z-[1]'>ABOUT ME</p>
         <p className='uppercase ff-betatron text-nowrap text-stroke absolute z-0 left-1 top-1'>ABOUT ME</p>
-      </p>
+      </div>
 
 
 
@@ -76,10 +76,10 @@ const About = () => {
       <div className="flex flex-col gap-8 items-center justify-center lg:hidden">
         <header className="flex flex-col gap-4 items-center justify-center">
             <img src="/images/my_img.png" alt="my img" className="w-36 h-auto aspect-square rounded-full object-cover custom-drop-shadow hover:scale-105 transition-all duration-300" />
-            <p className="ff-betatron text-[44px] w-max relative">
-            <p className='uppercase ff-betatron  z-[1]'>ABOUT ME</p>
-            <p className='uppercase ff-betatron text-nowrap text-stroke absolute z-0 left-1 top-1'>ABOUT ME</p>
-          </p>            
+            <div className="ff-betatron text-[44px] w-max relative">
+              <p className='uppercase ff-betatron  z-[1]'>ABOUT ME</p>
+              <p className='uppercase ff-betatron text-nowrap text-stroke absolute z-0 left-1 top-1'>ABOUT ME</p>
+            </div>            
         </header>
 
         <div className="flex flex-col gap-10 items-center justify-center ">
