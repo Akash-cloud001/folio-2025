@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import YearCard from "../ui/YearCard";
+import YearCard from "./ui/YearCard";
 
 const About = () => {
   const containerRef = useRef(null);
