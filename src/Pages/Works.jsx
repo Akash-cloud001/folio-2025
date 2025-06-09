@@ -25,13 +25,19 @@ const Works = () => {
             </div>
             :
             // <section className='grid grid-cols-12 place-items-start place-content-center gap-y-8'>
-            <section className='flex flex-row flex-wrap items-start justify-center gap-8'>
-                {work.map((w,idx)=>{
-                    return(
-                        // <ProjectCard key={w?.id} name={w?.name} url={w?.url} imgUrl={w?.imgUrl} tech={w?.tech} idx={idx+1} className='col-span-12 md:col-span-6 lg:col-span-4 2xl:col-span-3'/>
-                        <ProjectCard key={w?.id} name={w?.name} url={w?.url} imgUrl={w?.imgUrl} tech={w?.tech} idx={idx+1} />
-                    )
-                })}
+            <section>
+                <div className='relative text-4xl md:text-[64px] w-max h-fit mx-auto mb-6 md:mb-8'>
+                    <p className='uppercase ff-betatron  z-[1]'>MY WORK</p>
+                    <p className='uppercase ff-betatron text-nowrap text-stroke absolute z-0 left-1 top-1'>MY WORK</p>
+                </div>
+                <section className='flex flex-row flex-wrap items-start justify-center gap-4 md:gap-8'>      
+                    {work.map((w,idx)=>{
+                        return(
+                            // <ProjectCard key={w?.id} name={w?.name} url={w?.url} imgUrl={w?.imgUrl} tech={w?.tech} idx={idx+1} className='col-span-12 md:col-span-6 lg:col-span-4 2xl:col-span-3'/>
+                            <ProjectCard key={w?.id} name={w?.name} url={w?.url} imgUrl={w?.imgUrl} tech={w?.tech} idx={idx+1} />
+                        )
+                    })}
+                </section>
             </section>
         }
     </main>
