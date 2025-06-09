@@ -34,7 +34,7 @@ const Works = () => {
                     {work.map((w,idx)=>{
                         return(
                             // <ProjectCard key={w?.id} name={w?.name} url={w?.url} imgUrl={w?.imgUrl} tech={w?.tech} idx={idx+1} className='col-span-12 md:col-span-6 lg:col-span-4 2xl:col-span-3'/>
-                            <ProjectCard key={w?.id} name={w?.name} url={w?.url} imgUrl={w?.imgUrl} tech={w?.tech} idx={idx+1} />
+                            <ProjectCard key={w?.id} name={w?.name} desc={w?.smallDesc} url={w?.url} imgUrl={w?.imgUrl} tech={w?.tech} idx={idx+1} />
                         )
                     })}
                 </section>

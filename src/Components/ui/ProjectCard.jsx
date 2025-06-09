@@ -4,7 +4,7 @@ import { Gravity, MatterBody } from "../ui/gravity";
 import { Link } from 'react-router-dom';
 import { Magnetic } from '../ui/magnetic';
 
-const ProjectCard = ({name, url, tech, idx, className, imgUrl})=>{
+const ProjectCard = ({name, url, tech, idx, className, imgUrl, desc})=>{
   
     const ref = useRef();
     const  isInView = useInView(ref, {
@@ -41,7 +41,7 @@ const ProjectCard = ({name, url, tech, idx, className, imgUrl})=>{
           <img src="/images/cross.png" alt="" className='absolute -bottom-[5px] -right-[5px]' /> 
           <img src={imgUrl} alt="pro-image" className='w-full h-[160px] object-cover object-top'/>
           <a target='_blank' href={url} className='bg-transparent  w-full z-20 project-name'>
-            <div className='relative text-4xl w-max h-fit mx-auto pt-4 flex gap-1 text-primary z-50 '>
+            <div className='relative text-4xl w-max h-fit pt-4 flex gap-1 text-primary z-50 '>
                   <p className='uppercase ff-betatron  z-[1]'>{name}</p>
                   <p className='uppercase ff-betatron text-nowrap text-stroke-red absolute z-0  project-shadow-text transition-all duration-200'>{name}</p>
                   <div className='relative'>
@@ -49,6 +49,9 @@ const ProjectCard = ({name, url, tech, idx, className, imgUrl})=>{
                   </div>
             </div>
           </a>
+          <p className='text-sm text-white/80 mt-1'>
+            {desc}
+          </p>
           <Gravity gravity={{ x: 0, y: 1 }} className="w-full h-full">
             {tech.map((item, idx)=>(
                 <MatterBody

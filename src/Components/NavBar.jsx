@@ -6,7 +6,7 @@ const NavBar = () => {
   const scrollToSection = (sectionId, offset = 100) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const yOffset = -132; // how much space you want from the top
+      const yOffset = -50; // how much space you want from the top
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
   
       window.scrollTo({ top: y, behavior: 'smooth' });

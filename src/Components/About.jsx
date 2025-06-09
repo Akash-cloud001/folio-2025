@@ -14,9 +14,9 @@ const About = () => {
     <motion.section
       ref={containerRef}
       id="about"
-      className="min-h-screen w-full px-5 sm:px-8 relative max-w-container"
+      className="min-h-screen pt-36 md:pt-32  w-full px-5 sm:px-8 relative max-w-container"
     >
-      <div className="hidden lg:block absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-1/2 border border-white/20 w-3/5 h-96">
+      <div className="hidden lg:block absolute bottom-0 left-1/2 -translate-x-1/2  border border-white/20 w-3/5 h-96">
         <img src="/images/my_img.png" alt="my img" className="absolute -top-[280px] -2xl:top-[300px] left-1/2 -translate-x-1/2 w-36 h-auto aspect-square rounded-full object-cover custom-drop-shadow hover:scale-105 transition-all duration-300" />
 
         <YearCard

@@ -6,26 +6,32 @@ import { Magnetic } from '../ui/magnetic';
 import ProjectCard from '../ui/ProjectCard';
 const projectsData=[
   {
-    name: 'Solar System',
-    url: 'https://solar-system-00.web.app/',
-    imgUrl: '/images/projects/pro-2.jpeg',
-    tech: ['react', 'threeJs','r3f','drei','css','figma'],
-    desc:"The Solar System project is an interactive 3D visualization of our solar system, developed using React, React Three Fiber (R3F), Three.js, and Drei. This application offers users an immersive experience, allowing them to explore the planets and their orbits in a visually appealing manner."
+    "id": "prodigy-football",
+    "name": "Prodigy",
+    "url": "https://prodigyfootball.com.au/",
+    "imgUrl": "/images/projects/pro-4.png",
+    "tech": ["React", "TailwindCSS", "Motion", "Node.js", "Stripe", "Context API"],
+    "desc": "A professional football coaching platform that bridges the gap between grassroots and elite level training. The website features dynamic booking systems for private sessions, team coaching programs, and high-performance academies. Built with modern web technologies to provide seamless user experience for players, coaches, and clubs across Australia. Includes real-time scheduling, payment processing, progress tracking, and interactive training modules designed to develop well-rounded and intelligent community footballers through specialized coaching methodologies.",
+    "smallDesc": "Football coaching platform with bookings, payments, and training modules for all levels."
   },
   {
-    name: 'Prodigy',
-    url: 'https://prodigyfootball.com.au/',
-    imgUrl: '/images/projects/pro-4.png',
-    tech: ['React', 'TailwindCSS', 'Motion', 'Node.js', 'Stripe'],
-    desc: 'A professional football coaching platform that bridges the gap between grassroots and elite level training. The website features dynamic booking systems for private sessions, team coaching programs, and high-performance academies. Built with modern web technologies to provide seamless user experience for players, coaches, and clubs across Australia. Includes real-time scheduling, payment processing, progress tracking, and interactive training modules designed to develop well-rounded and intelligent community footballers through specialized coaching methodologies.'
+    "id": "walkbuy-platform",
+    "name": "WalkBuy",
+    "url": "https://walkbuyapp.com/",
+    "imgUrl": "/images/projects/pro-5.png",
+    "tech": ["React", "Node.js", "Context API", "TailwindCSS"],
+    "desc": "A revolutionary local shopping platform that bridges the gap between traditional street shops and modern digital commerce. WalkBuy enables customers to discover, browse, and preview products from nearby local businesses through an intuitive mobile app, while providing shop owners with WalkShop - a simple showcase management system. The platform promotes local economy by allowing users to search for shops, products, and offers in their vicinity, preview items digitally, then visit the physical store for personal consultation, fitting, and purchase. Features real-time inventory updates, location-based discovery, merchant dashboard, customer reviews, and seamless integration between online browsing and offline shopping experience.",
+    "smallDesc": "Discover and shop local products digitally. Bridging offline stores with online visibility."
   },
   {
-    name: 'Akash Folio',
-    url: 'https://google.com',
-    imgUrl: '/images/projects/pro-3.jpeg',
-    tech: ['react', 'threeJs','r3f','drei','tailwind','acternity ui', 'react-bits', 'lenis'],
-    desc: 'This portfolio website is a visually stunning and interactive showcase built using React, Three.js, React Three Fiber (R3F), Drei, Acternity UI, and React Bit for seamless 3D component integration. It features dynamic 3D elements, smooth animations, and an intuitive UI, offering an immersive experience. The site highlights my projects, skills, and achievements in a modern and engaging way.',
-  },
+    "id": "akash-portfolio",
+    "name": "Akash Folio",
+    "url": "https://google.com",
+    "imgUrl": "/images/projects/pro-3.jpeg",
+    "tech": ["react", "threeJs", "r3f", "drei", "tailwind", "aceternity-ui", "react-bits", "lenis"],
+    "desc": "This portfolio website is a visually stunning and interactive showcase built using React, Three.js, React Three Fiber (R3F), Drei, Aceternity UI, and React Bit for seamless 3D component integration. It features dynamic 3D elements, smooth animations, and an intuitive UI, offering an immersive experience. The site highlights my projects, skills, and achievements in a modern and engaging way.",
+    "smallDesc": "3D portfolio site with immersive visuals and smooth animations. Built using R3F & Drei."
+  }
 ]
 const Projects = () => {
   const ref = useRef();
@@ -73,9 +79,9 @@ const Projects = () => {
       />
 
         </section>
-        <ProjectCard name={projectsData[2].name} url={projectsData[2].url} imgUrl={projectsData[2].imgUrl} tech={projectsData[2].tech} idx={1} className={'sticky top-[25%] left-[calc(50%-180px)] -translate-x-1/2 mt-4 w-max'}/>
-        <ProjectCard name={projectsData[1].name} url={projectsData[1].url} imgUrl={projectsData[1].imgUrl} tech={projectsData[1].tech} idx={2} className={'sticky top-[25%] left-[calc(50%-180px)] -translate-x-1/2 mt-10 w-max'}/>
-        <ProjectCard name={projectsData[0].name} url={projectsData[0].url} imgUrl={projectsData[0].imgUrl} tech={projectsData[0].tech} idx={3} className={'sticky top-[25%] left-[calc(50%-180px)] -translate-x-1/2 mt-10 w-max'}/>
+        <ProjectCard name={projectsData[2].name} desc={projectsData[2]?.smallDesc} url={projectsData[2].url} imgUrl={projectsData[2].imgUrl} tech={projectsData[2].tech} idx={1} className={'sticky top-[25%] left-[calc(50%-180px)] -translate-x-1/2 mt-4 w-max'}/>
+        <ProjectCard name={projectsData[1].name} desc={projectsData[1]?.smallDesc} url={projectsData[1].url} imgUrl={projectsData[1].imgUrl} tech={projectsData[1].tech} idx={2} className={'sticky top-[25%] left-[calc(50%-180px)] -translate-x-1/2 mt-10 w-max'}/>
+        <ProjectCard name={projectsData[0].name} desc={projectsData[0]?.smallDesc} url={projectsData[0].url} imgUrl={projectsData[0].imgUrl} tech={projectsData[0].tech} idx={3} className={'sticky top-[25%] left-[calc(50%-180px)] -translate-x-1/2 mt-10 w-max'}/>
 
       </section>
         
