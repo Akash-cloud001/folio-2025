@@ -14,10 +14,11 @@ const About = () => {
     <motion.section
       ref={containerRef}
       id="about"
-      className="min-h-screen pt-36 md:pt-32  w-full px-5 sm:px-8 relative max-w-container"
+      className="min-h-screen pt-24 md:pt-20  w-full px-5 sm:px-8 relative max-w-container"
     >
-      <div className="hidden lg:block absolute bottom-0 left-1/2 -translate-x-1/2  border border-white/20 w-3/5 h-96">
-        <img src="/images/my_img.png" alt="my img" className="absolute -top-[280px] -2xl:top-[300px] left-1/2 -translate-x-1/2 w-36 h-auto aspect-square rounded-full object-cover custom-drop-shadow hover:scale-105 transition-all duration-300" />
+      <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2  w-3/5 h-96">
+        
+        {/* <img src="/images/my_img.png" alt="my img" className="absolute -top-[280px] -2xl:top-[300px] left-1/2 -translate-x-1/2 w-36 h-auto aspect-square rounded-full object-cover custom-drop-shadow hover:scale-105 transition-all duration-300" /> */}
 
         <YearCard
           year={2025}
@@ -56,7 +57,7 @@ const About = () => {
         <YearCard
           year={"REST..."}
           content={[
-            `Watching anime is the how I spend my free time. <a href='https://myanimelist.net/animelist/fatfck' target='_blank'>@my_fav_list</a>.`,
+            `Watching anime is the how I spend my free time. So I build a Wikipedia of anime called as <a href='https://ani-pedia.web.app/' target='_blank'>@ani-pedia</a>.`,
             "Taking Challenges on is what keeps me motivated.",
             "Spending good time with loved once is the best time for me.",
           ]}
@@ -65,9 +66,12 @@ const About = () => {
           className="absolute -bottom-32 -right-32"
         />
       </div>
-      <div className="hidden lg:block ff-betatron text-[64px] w-max absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-        <p className='uppercase ff-betatron  z-[1]'>ABOUT ME</p>
-        <p className='uppercase ff-betatron text-nowrap text-stroke absolute z-0 left-1 top-1'>ABOUT ME</p>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center">
+        <img src="/images/my_img.png" alt="my img" className=" w-36 h-auto aspect-square rounded-full object-cover custom-drop-shadow hover:scale-105 transition-all duration-300" />
+        <div className="hidden lg:block ff-betatron text-[64px] w-max relative">
+          <p className='uppercase ff-betatron  z-[1]'>ABOUT ME</p>
+          <p className='uppercase ff-betatron text-nowrap text-stroke absolute z-0 left-1 top-1'>ABOUT ME</p>
+        </div>
       </div>
 
 
