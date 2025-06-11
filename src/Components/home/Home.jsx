@@ -4,6 +4,7 @@ import HeroRightScene from "./HeroRightScene";
 import {motion} from 'motion/react'
 import Orb from '../Orb/Orb'
 import { spring } from "motion";
+import DecryptedText from "../ui/DecryptedText";
 
 const Home = () => {
   const [mouseY, setMouseY] = useState('0');
@@ -23,7 +24,8 @@ const Home = () => {
               className="-rotate-90 h-full w-full"
             />
           </motion.div>
-          <span>REATIVE</span>
+          <DecryptedText text={'REATIVE'} animateOn="hover" speed={100} sequential={true} />
+          {/* <span>REATIVE</span> */}
         </div>
         <div className="pl-4 mt-0 text-[55px] text-7xl sm:text-[100px] md:text-[100px] lg:text-[110px] xl:text-[150px] text-stroke flex items-center justify-start">
           <span>DEVEL</span>
@@ -37,19 +39,24 @@ const Home = () => {
           </div>
           <span>PER</span>
         </div>
-        <div className="w-[90%] md:w-4/5 ff-gs-regular text-base flex items-start justify-start text-white opacity-70 pl-10 pr-4 md:pl-6 relative top-4 md:top-16">
-          <div className="relative">
-            <div className="absolute -left-5 top-[10px] flex gap-1">
-              <div className="h-1 w-1 rounded-full bg-light-900"></div>
-              <div className="h-1 w-1 rounded-full bg-light-900"></div>
-            </div>
-            <p className="tracking-wide max-w-xl">A Developer specializing in Crafting Interactive and Immersive Digital Experiences.</p>
-            {/* <p className="tracking-wide">specializing in Crafting Interactive</p> */}
-            {/* <p className="tracking-wide">and Immersive Digital Experiences.</p> */}
+        <aside className="pl-4 sm:pl-5 mt-8 flex items-center gap-5 sm:gap-6">
+       {['designer','coder','vibe curator'].map((item,idx)=>(
+        <div key={idx}>
+          <div className="px-5 py-3 relative border border-white/20">
+            <img src="/images/cross.png" alt="" className='absolute -top-[5px] -left-[5px]' /> 
+            <img src="/images/cross.png" alt="" className='absolute -top-[5px] -right-[5px]' /> 
+            <img src="/images/cross.png" alt="" className='absolute -bottom-[5px] -left-[5px]' /> 
+            <img src="/images/cross.png" alt="" className='absolute -bottom-[5px] -right-[5px]' /> 
+
+            <p className="text-white/80 font-semibold uppercase text-xs">
+              <DecryptedText text={item} speed={100} animateOn="hover" sequential={true}/>
+            </p>
           </div>
         </div>
+       )) }
+      </aside>
       </article>
-      <aside id="hero-canvas" className="hero-right relative -top-8 sm:-top-[9%] md:top-auto rotate-90 md:rotate-0 w-[100%] h-[100vw]  md:h-dvh md:w-[30%] lg:w-[30%]  xl:w-1/4 ">
+      <aside id="hero-canvas" className="hero-right relative -top-8 sm:-top-[9%] md:top-auto rotate-90 md:rotate-0 w-[100%] h-[100vw] h-  md:h-dvh md:w-[30%] lg:w-[30%]  xl:w-1/4 ">
         <Canvas
           gl={{
             powerPreference: "high-performance",
