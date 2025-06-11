@@ -1,5 +1,6 @@
 import React from 'react'
 import ComingSoon from '../Components/ui/ComingSoon'
+import transition from '../transition'
 
 const Blogs = () => {
   return (
@@ -8,4 +9,4 @@ const Blogs = () => {
   )
 }
 
-export default Blogs
+export default transition(Blogs)
