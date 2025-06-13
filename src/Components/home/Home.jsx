@@ -40,7 +40,7 @@ const Home = () => {
           <span>PER</span>
         </div>
         <aside className="pl-4 sm:pl-5 mt-8 flex items-center gap-5 sm:gap-6">
-       {['designer','coder','vibe curator'].map((item,idx)=>(
+       {['A designer','A coder','A vibe curator'].map((item,idx)=>(
         <div key={idx}>
           <div className="px-5 py-3 relative border border-white/20">
             <img src="/images/cross.png" alt="" className='absolute -top-[5px] -left-[5px]' /> 

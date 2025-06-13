@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import AkashLogo from './svgs/AkashLogo'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 const NavBar = () => {
   const scrollToSection = (sectionId, offset = 100) => {
@@ -38,9 +38,9 @@ const NavBar = () => {
   return (
     <nav className='navbar-container fixed top-0 left-0 w-full z-50 h-28'>
         <div className='w-full h-full flex items-center justify-between px-4 sm:px-6  relative z-10'>
-          <figure className='w-20 h-auto flex items-center justify-center'>
+          <Link to={'/'} className='w-20 h-auto flex items-center justify-center'>
             <AkashLogo className='w-full h-full'/>
-          </figure>
+          </Link>
           <ul className='flex items-center justify-center gap-4 sm:gap-8 ff-betatron text-sm leading-relaxed'>
             {navItems.map((item, index)=>{
               return(
