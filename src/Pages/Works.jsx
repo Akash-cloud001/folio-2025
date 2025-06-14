@@ -26,7 +26,7 @@ const Works = () => {
             :
             // <section className='grid grid-cols-12 place-items-start place-content-center gap-y-8'>
             <section>
-                <div className='relative text-4xl md:text-[64px] w-max h-fit mx-auto mb-6 md:mb-8'>
+                <div className='relative text-4xl md:text-[64px] w-max h-fit mx-auto mb-8 md:mb-12'>
                     <p className='uppercase ff-betatron  z-[1]'>MY WORK</p>
                     <p className='uppercase ff-betatron text-nowrap text-stroke absolute z-0 left-1 top-1'>MY WORK</p>
                 </div>
