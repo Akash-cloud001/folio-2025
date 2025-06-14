@@ -18,17 +18,25 @@ function App() {
   const [isFooter, setIsFooter] = useState(false);
   const location = useLocation();
   useEffect(() => {
+
+    /**
+     * if location.pathname is '/' -> CLICKS should work normally
+     * however if are at '/blogs' or '/(-path-name-)' and we click any non-page item 
+     * then we need to redirect to the '/' then scrolls to the dedicated section smoothly
+     */
+
+
     if(location.pathname === "/blogs"){
       setIsFooter(false);
     }else{
       setIsFooter(true);
     }
-
+    console.log(location, " :: location")
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     })
-  }, [location]);
+  }, [location.pathname]);
   return (
     <main className="main-container pb-4  mx-auto">
       <NavBar />
