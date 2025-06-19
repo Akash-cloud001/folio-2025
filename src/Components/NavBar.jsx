@@ -1,18 +1,29 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import AkashLogo from './svgs/AkashLogo'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 const NavBar = () => {
-  const scrollToSection = (sectionId, offset = 100) => {
+  const navigate = useNavigate();
+  const scrollToSection = (sectionId, offset = -50) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const yOffset = -50; // how much space you want from the top
+      const yOffset = offset; // how much space you want from the top
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
   
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
+    else{
+      navigate(`/`);
+      setTimeout(()=>{
+        if(document.getElementById(sectionId)){
+          const yOffset = offset; // how much space you want from the top
+          const y = document.getElementById(sectionId).getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }, 100)
+    }
   };
-
+  
   const navItems = [
     {
       name: 'About',
