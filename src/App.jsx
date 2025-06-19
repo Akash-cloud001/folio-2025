@@ -18,24 +18,17 @@ function App() {
   const [isFooter, setIsFooter] = useState(false);
   const location = useLocation();
   useEffect(() => {
-
-    /**
-     * if location.pathname is '/' -> CLICKS should work normally
-     * however if are at '/blogs' or '/(-path-name-)' and we click any non-page item 
-     * then we need to redirect to the '/' then scrolls to the dedicated section smoothly
-     */
-
-
-    if(location.pathname === "/blogs"){
+    console.log('useEffect triggered for pathname:', location.pathname);
+    if (location.pathname === '/blogs') {
       setIsFooter(false);
-    }else{
+    } else {
       setIsFooter(true);
     }
-    console.log(location, " :: location")
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
-    })
+      behavior: 'smooth',
+    });
+    console.log('Attempted to scroll to top');
   }, [location.pathname]);
   return (
     <main className="main-container pb-4  mx-auto">
@@ -44,7 +37,6 @@ function App() {
         <Routes location={location} key={location.pathname}>
           <Route index element={<Home />} />
           <Route path="/my-works" element={<Works />} />
-          <Route path="/my-works/:id" element={<Project />} />
           <Route path="/blogs" element={<Blogs />} />
         </Routes>
       </AnimatePresence>
