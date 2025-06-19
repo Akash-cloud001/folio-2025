@@ -15,7 +15,7 @@ const Home = () => {
   const rotation = (mouseY / window.innerHeight) * 180 - 90;
   return (
     <section onMouseMove={handleMouseMove} className="home-container relative h-dvh w-full flex flex-col-reverse md:flex-row items-start justify-center md:items-center md:justify-center overflow-hidden pt-[120px] sm:pt-[64px] md:pt-0" >
-      <article className="hero-left w-full md:w-3/4 h-full ff-betatron flex items-start justify-center pl-2 md:pl-6 flex-col relative z-[1] select-none -top-[2%] sm:-top-[25%] -translate-y-1/2 md:translate-y-0  md:top-auto">
+      <article className="hero-left w-full md:w-3/4 h-full ff-betatron flex items-start justify-center pl-2 md:pl-6 flex-col relative z-[1] select-none top-[6%] sm:-top-[25%] -translate-y-1/2 md:translate-y-0  md:top-auto">
         <div className="flex items-center justify-start text-white text-7xl sm:text-[120px] md:text-[100px] lg:text-[120px] xl:text-[150px]">
           <motion.div className="headPhone h-[76px] w-[76px] sm:h-[120px] sm:w-[120px] md:h-[100px] md:w-[100px]  lg:h-[140px]  lg:w-[140px]" style={{rotate: mouseY, transformOrigin:'left center'}} >
             <img
@@ -39,21 +39,10 @@ const Home = () => {
           </div>
           <span>PER</span>
         </div>
-        <aside className="pl-4 sm:pl-5 mt-8 flex items-center gap-5 sm:gap-6">
-       {['A designer','A coder','A vibe curator'].map((item,idx)=>(
-        <div key={idx}>
-          <div className="px-5 py-3 relative border border-white/20">
-            <img src="/images/cross.png" alt="" className='absolute -top-[5px] -left-[5px]' /> 
-            <img src="/images/cross.png" alt="" className='absolute -top-[5px] -right-[5px]' /> 
-            <img src="/images/cross.png" alt="" className='absolute -bottom-[5px] -left-[5px]' /> 
-            <img src="/images/cross.png" alt="" className='absolute -bottom-[5px] -right-[5px]' /> 
-
-            <p className="text-white/80 font-semibold uppercase text-xs">
-              <DecryptedText text={item} speed={100} animateOn="hover" sequential={true}/>
-            </p>
-          </div>
-        </div>
-       )) }
+        <aside className="pl-4 sm:pl-5 mt-2 flex items-center gap-5 sm:gap-6">
+        <p className="font-black ff-gs-medium text-white/80">
+          Designer + Coder + Vibe Curator = ME
+        </p>
       </aside>
       </article>
       <aside id="hero-canvas" className="hero-right relative -top-8 sm:-top-[9%] md:top-auto rotate-90 md:rotate-0 w-[100%] h-[100vw] h-  md:h-dvh md:w-[30%] lg:w-[30%]  xl:w-1/4 ">

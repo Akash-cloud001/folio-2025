@@ -3,6 +3,11 @@ import ProjectCard from '../Components/ui/ProjectCard';
 const Works = () => {
     const [work, setWork] = useState([]);
     useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+          });
+          console.log('Attempted to scroll to top');
         const fetchData = async()=>{
             try {
                 const res = await fetch('/projects.json')
