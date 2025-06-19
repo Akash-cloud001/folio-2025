@@ -2,7 +2,7 @@ import React from 'react'
 
 const YearCard = ({year, content, imgUrl, className, scale=1, }) => {
   return (
-    <article style={{transform: `scale(${scale})`}} className={`${className} max-w-[360px] max-h-[275px] !w-full !h-[275px] flex items-start pt-6 justify-center border border-white/20 overflow-hidden  bg-black`}>
+    <article style={{transform: `scale(${scale})`}} className={`${className} max-w-[360px] max-h-[275px] !w-full !h-[275px] flex items-start pt-6 justify-center  bg-white/5 backdrop-blur-sm rounded-xl border border-white/20 overflow-hidden  bg-black`}>
         <ul className='list-none relative max-w-[320px] z-[1]'>
             {content.map((item, index) => (
                 <li key={index} className='text-white/80 text-base mb-2 relative pl-5'>
