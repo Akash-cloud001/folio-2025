@@ -11,6 +11,7 @@ import Blogs from "./Pages/Blogs";
 import Project from "./Pages/Project"
 import Footer from "./Components/Footer";
 import Works from "./Pages/Works";
+import InViewAnimation from "./Components/ui/InViewAnimation";
 
 function App() {
   const lenis = useLenisSmoothScroll(); // Get lenis instance
@@ -60,7 +61,11 @@ function App() {
           <Route path="/blogs" element={<Blogs />} />
         </Routes>
       </AnimatePresence>
-      {isFooter && <Footer />}
+      {isFooter &&
+      <InViewAnimation delay={0.5} yOffset={50} duration={1.25}>
+        <Footer />
+      </InViewAnimation>
+      }
 
       {/* <section className="fixed z-50 min-w-fit right-8 sm:right-auto sm:left-1/2 sm:-translate-x-1/2 bottom-6">
         <FloatingDock />
