@@ -3,7 +3,7 @@
   {
     "id": "akash-portfolio",
     "name": "Akash Folio",
-    "url": "https://google.com",
+    "url": "https://akash-codes.in",
     "imgUrl": "/images/projects/pro-3.jpeg",
     "tech": ["react", "threeJs", "r3f", "drei", "tailwind", "aceternity-ui", "react-bits", "lenis"],
     "desc": "This portfolio website is a visually stunning and interactive showcase built using React, Three.js, React Three Fiber (R3F), Drei, Aceternity UI, and React Bit for seamless 3D component integration. It features dynamic 3D elements, smooth animations, and an intuitive UI, offering an immersive experience. The site highlights my projects, skills, and achievements in a modern and engaging way.",
