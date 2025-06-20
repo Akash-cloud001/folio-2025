@@ -40,8 +40,8 @@ const Home = () => {
           <span>PER</span>
         </div>
         <aside className="pl-4 sm:pl-5 mt-2 flex items-center gap-5 sm:gap-6">
-        <p className="font-black ff-gs-medium text-white/80">
-          Designer + Coder + Vibe Curator = ME
+        <p className="ff-gs-regular text-white/80">
+          Designer + Coder + Vibe Curator = Me
         </p>
       </aside>
       </article>
