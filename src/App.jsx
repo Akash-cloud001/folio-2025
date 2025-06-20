@@ -11,42 +11,56 @@ import Blogs from "./Pages/Blogs";
 import Project from "./Pages/Project"
 import Footer from "./Components/Footer";
 import Works from "./Pages/Works";
-import InViewAnimation from "./Components/ui/InViewAnimation";
 
 function App() {
-  useLenisSmoothScroll()
+  const lenis = useLenisSmoothScroll(); // Get lenis instance
   const [count, setCount] = useState(0);
   const [isFooter, setIsFooter] = useState(false);
   const location = useLocation();
+
   useEffect(() => {
-    console.log('useEffect triggered for pathname:', location.pathname);
-    if (location.pathname === '/blogs') {
+    // Handle footer visibility
+    if(location.pathname === "/blogs"){
       setIsFooter(false);
     } else {
       setIsFooter(true);
     }
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-    console.log('Attempted to scroll to top');
-  }, [location.pathname]);
+
+    // Handle scroll to top with Lenis
+    const scrollToTop = () => {
+      if (lenis) {
+        // Use Lenis scrollTo method
+        lenis.scrollTo(0, {
+          duration: 1.2,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+        });
+      } else {
+        // Fallback to native scroll if Lenis isn't ready
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
+    };
+
+    // Add a small delay to ensure route transition is complete
+    const timeoutId = setTimeout(scrollToTop, 100);
+
+    return () => clearTimeout(timeoutId);
+  }, [location.pathname, lenis]);
+
   return (
-    <main className="main-container pb-4  mx-auto">
+    <main className="main-container pb-4 mx-auto">
       <NavBar />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route index element={<Home />} />
           <Route path="/my-works" element={<Works />} />
+          <Route path="/my-works/:id" element={<Project />} />
           <Route path="/blogs" element={<Blogs />} />
         </Routes>
       </AnimatePresence>
-      {isFooter && 
-      <InViewAnimation delay={0.3} yOffset={30} duration={1}>
-        <Footer />
-      </InViewAnimation>
-      
-      }
+      {isFooter && <Footer />}
 
       {/* <section className="fixed z-50 min-w-fit right-8 sm:right-auto sm:left-1/2 sm:-translate-x-1/2 bottom-6">
         <FloatingDock />
