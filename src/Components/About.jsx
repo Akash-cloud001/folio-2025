@@ -147,7 +147,7 @@ const About = () => {
             <YearCard
               year={"REST..."}
               content={[
-                `Watching anime is the how I spend my free time. <a href='https://myanimelist.net/animelist/fatfck' target='_blank'>@my_fav_list</a>.`,
+                `Watching anime is the how I spend my free time. <a href='https://ani-pedia.web.app/' target='_blank'>@my_fav_list</a>.`,
                 "Taking Challenges on is what keeps me motivated.",
                 "Spending good time with loved once is the best time for me.",
               ]}
