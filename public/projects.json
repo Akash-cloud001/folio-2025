@@ -19,6 +19,15 @@
     "smallDesc": "Zero-brokerage PG booking platform connecting students & professionals with verified accommodations nationwide."
   },
   {
+    "id": "gagan-codes-app",
+    "name": "Gagan Codes",
+    "url": "https://gagancodes.dev/",
+    "imgUrl": "/images/projects/gagan-codes.png",
+    "tech": ["Next.js", "Node.js","threeJs", "drei","R3F" , "Tailwind CSS", "Motion", "Figma"],
+    "desc": "Gagan Codes is a cutting-edge portfolio website that showcases innovative web development with immersive 3D experiences. Built using Next.js for optimal performance and SEO, the platform features stunning Three.js 3D visualizations powered by React Three Fiber (R3F) and Drei for enhanced 3D capabilities. The website demonstrates modern web development practices with smooth animations, responsive design using Tailwind CSS, and interactive motion effects. The portfolio highlights expertise in full-stack development, 3D web graphics, and creating engaging user experiences that push the boundaries of web technology.",
+    "smallDesc": "Immersive 3D portfolio website showcasing modern web development with Three.js and React Three Fiber."
+  },
+  {
     "id": "vrmultiservices-app", 
     "name": "VR Multiservices",
     "url": "https://www.vrmultiservices.in/",
