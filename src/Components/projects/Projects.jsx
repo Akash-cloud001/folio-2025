@@ -1,45 +1,42 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import {motion, useInView, useScroll, useTransform} from 'motion/react'
 import { Gravity, MatterBody } from "../ui/gravity";
 import { Link } from 'react-router-dom';
 import { Magnetic } from '../ui/magnetic';
 import ProjectCard from '../ui/ProjectCard';
-const projectsData=[
-  {
-    "id": "prodigy-football",
-    "name": "Prodigy",
-    "url": "https://prodigyfootball.com.au/",
-    "imgUrl": "/images/projects/pro-4.png",
-    "tech": ["React", "TailwindCSS", "Motion", "Node.js", "Stripe", "Context API"],
-    "desc": "A professional football coaching platform that bridges the gap between grassroots and elite level training. The website features dynamic booking systems for private sessions, team coaching programs, and high-performance academies. Built with modern web technologies to provide seamless user experience for players, coaches, and clubs across Australia. Includes real-time scheduling, payment processing, progress tracking, and interactive training modules designed to develop well-rounded and intelligent community footballers through specialized coaching methodologies.",
-    "smallDesc": "Football coaching platform with bookings, payments, and training modules for all levels."
-  },
-  {
-    "id": "walkbuy-platform",
-    "name": "WalkBuy",
-    "url": "https://walkbuyapp.com/",
-    "imgUrl": "/images/projects/pro-5.png",
-    "tech": ["React", "Node.js", "Context API", "TailwindCSS"],
-    "desc": "A revolutionary local shopping platform that bridges the gap between traditional street shops and modern digital commerce. WalkBuy enables customers to discover, browse, and preview products from nearby local businesses through an intuitive mobile app, while providing shop owners with WalkShop - a simple showcase management system. The platform promotes local economy by allowing users to search for shops, products, and offers in their vicinity, preview items digitally, then visit the physical store for personal consultation, fitting, and purchase. Features real-time inventory updates, location-based discovery, merchant dashboard, customer reviews, and seamless integration between online browsing and offline shopping experience.",
-    "smallDesc": "Discover and shop local products digitally. Bridging offline stores with online visibility."
-  },
-  {
-    "id": "akash-portfolio",
-    "name": "Akash Folio",
-    "url": "https://akash-codes.in",
-    "imgUrl": "/images/projects/pro-3.jpeg",
-    "tech": ["react", "threeJs", "r3f", "drei", "tailwind", "aceternity-ui", "react-bits", "lenis"],
-    "desc": "This portfolio website is a visually stunning and interactive showcase built using React, Three.js, React Three Fiber (R3F), Drei, Aceternity UI, and React Bit for seamless 3D component integration. It features dynamic 3D elements, smooth animations, and an intuitive UI, offering an immersive experience. The site highlights my projects, skills, and achievements in a modern and engaging way.",
-    "smallDesc": "3D portfolio site with immersive visuals and smooth animations. Built using R3F & Drei."
-  }
-]
+
 const Projects = () => {
+  const [projects, setProjects] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   const ref = useRef();
   const { scrollYProgress } = useScroll({
     target:ref
   })
   const y = useTransform(scrollYProgress, [0, 0.8], ['0%', '-100%']);
   const top = useTransform(scrollYProgress, [0, 0.9], ['100%', '-200%']);
+
+  // Fetch projects data
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        const res = await fetch('/projects.json');
+        const data = await res.json();
+        if (data) {
+          setProjects(data?.works?.slice(0, 3)); // Only show first 3 projects
+        }
+      } catch (error) {
+        console.error('Error in fetching data :: ', error);
+        setError('Failed to load projects');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+
   const floatingVariants = {
     animate: {
       y: [-10, 10, -10],
@@ -50,6 +47,39 @@ const Projects = () => {
       }
     }
   };
+
+  if (isLoading) {
+    return (
+      <section id='work' className='h-auto w-full md:padding-top-nav px-5 sm:px-8 max-w-container'>
+        <div className='flex items-center justify-center py-20'>
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+            className='w-12 h-12 border-2 border-primary border-t-transparent rounded-full'
+          />
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section id='work' className='h-auto w-full md:padding-top-nav px-5 sm:px-8 max-w-container'>
+        <div className='text-center py-20'>
+          <p className='text-xl text-white/50 ff-gs-medium mb-4'>
+            {error}
+          </p>
+          <button
+            onClick={() => window.location.reload()}
+            className='text-primary hover:text-white transition-colors ff-gs-medium'
+          >
+            Try again
+          </button>
+        </div>
+      </section>
+    );
+  }
+
   return (
       <section id='work' className='h-auto w-full md:padding-top-nav px-5 sm:px-8 max-w-container'>
       <section ref={ref} className='h-[300vh] w-full project-container relative ' >
@@ -79,9 +109,42 @@ const Projects = () => {
       />
 
         </section>
-        <ProjectCard name={projectsData[2].name} desc={projectsData[2]?.smallDesc} url={projectsData[2].url} imgUrl={projectsData[2].imgUrl} tech={projectsData[2].tech} idx={1} className={'sticky top-[25%] left-[calc(50%-180px)] -translate-x-1/2 mt-4 w-max'}/>
-        <ProjectCard name={projectsData[1].name} desc={projectsData[1]?.smallDesc} url={projectsData[1].url} imgUrl={projectsData[1].imgUrl} tech={projectsData[1].tech} idx={2} className={'sticky top-[25%] left-[calc(50%-180px)] -translate-x-1/2 mt-10 w-max'}/>
-        <ProjectCard name={projectsData[0].name} desc={projectsData[0]?.smallDesc} url={projectsData[0].url} imgUrl={projectsData[0].imgUrl} tech={projectsData[0].tech} idx={3} className={'sticky top-[25%] left-[calc(50%-180px)] -translate-x-1/2 mt-10 w-max'}/>
+        
+        {projects.length > 0 && (
+          <>
+            <ProjectCard 
+              name={projects[0]?.name} 
+              desc={projects[0]?.smallDesc} 
+              url={projects[0]?.url} 
+              imgUrl={projects[0]?.imgUrl} 
+              tech={projects[0]?.tech} 
+              idx={1} 
+              className={'sticky top-[25%] left-[calc(50%-180px)] -translate-x-1/2 mt-4 w-max'}
+            />
+            {projects[1] && (
+              <ProjectCard 
+                name={projects[1]?.name} 
+                desc={projects[1]?.smallDesc} 
+                url={projects[1]?.url} 
+                imgUrl={projects[1]?.imgUrl} 
+                tech={projects[1]?.tech} 
+                idx={2} 
+                className={'sticky top-[25%] left-[calc(50%-180px)] -translate-x-1/2 mt-10 w-max'}
+              />
+            )}
+            {projects[2] && (
+              <ProjectCard 
+                name={projects[2]?.name} 
+                desc={projects[2]?.smallDesc} 
+                url={projects[2]?.url} 
+                imgUrl={projects[2]?.imgUrl} 
+                tech={projects[2]?.tech} 
+                idx={3} 
+                className={'sticky top-[25%] left-[calc(50%-180px)] -translate-x-1/2 mt-10 w-max'}
+              />
+            )}
+          </>
+        )}
 
       </section>
         
