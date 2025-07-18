@@ -41,6 +41,25 @@ body{
     width: 100%;
 }
 
+/* Hide default scrollbar */
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
 .back-900 {
   background: var(--c-back-900);
 }
@@ -278,3 +297,4 @@ body{
   z-index: 10000;
 
 }
+

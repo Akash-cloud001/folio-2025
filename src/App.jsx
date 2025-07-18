@@ -12,6 +12,7 @@ import Project from "./Pages/Project"
 import Footer from "./Components/Footer";
 import Works from "./Pages/Works";
 import InViewAnimation from "./Components/ui/InViewAnimation";
+import ScrollProgressBar from "./Components/ui/ScrollProgressBar";
 
 function App() {
   const lenis = useLenisSmoothScroll(); // Get lenis instance
@@ -52,6 +53,7 @@ function App() {
 
   return (
     <main className="main-container pb-4 mx-auto">
+      <ScrollProgressBar />
       <NavBar />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
