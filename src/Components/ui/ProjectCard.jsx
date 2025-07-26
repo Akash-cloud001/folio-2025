@@ -75,22 +75,46 @@ const ProjectCard = ({name, url, tech, idx, className, imgUrl, desc})=>{
           <p className='text-sm text-white/80 mt-1'>
             {desc}
           </p>
-          <Gravity gravity={{ x: 0, y: 1 }} className="w-full h-full">
-            {tech.map((item, idx)=>(
-                <MatterBody
+          {/* Mobile Tech Pills */}
+          <div className='flex flex-wrap gap-2 mt-4 md:hidden'>
+            {tech.slice(0, 5).map((item, idx) => (
+              <div
                 key={idx}
-                  matterBodyOptions={{ friction: 0.5, restitution: 0.2 }}
-                  x= {String((idx+4) * 10)+'%'}
-                  // y= {String((idx+1) * 10)+'%'}
-                  y="10%"
-                >
-                  <div className=" font-extralight text-xs uppercase bg-transparent border border-[#FBFAF3] rounded-full hover:cursor-pointer px-3 py-1">
-                    {item}
-                  </div>
-                </MatterBody>
-  
+                className='px-3 py-1 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full'
+              >
+                <span className='text-xs text-white/80 ff-gs-medium uppercase tracking-wider'>
+                  {item}
+                </span>
+              </div>
             ))}
-          </Gravity>
+            {tech.length > 4 && (
+              <div className='px-3 py-1 bg-primary/20 border border-primary/30 rounded-full'>
+                <span className='text-xs text-primary ff-gs-medium'>
+                  +{tech.length - 4} more
+                </span>
+              </div>
+            )}
+          </div>
+
+          {/* Desktop Gravity Component */}
+          <div className='hidden md:block'>
+            <Gravity gravity={{ x: 0, y: 1 }} className="w-full h-full">
+              {tech.map((item, idx)=>(
+                  <MatterBody
+                  key={idx}
+                    matterBodyOptions={{ friction: 0.5, restitution: 0.2 }}
+                    x= {String((idx+4) * 10)+'%'}
+                    // y= {String((idx+1) * 10)+'%'}
+                    y="10%"
+                  >
+                    <div className=" font-extralight text-xs uppercase bg-transparent border border-[#FBFAF3] rounded-full hover:cursor-pointer px-3 py-1">
+                      {item}
+                    </div>
+                  </MatterBody>
+    
+              ))}
+            </Gravity>
+          </div>
         </figure>
       </motion.aside>
     )
