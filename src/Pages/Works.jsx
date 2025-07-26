@@ -37,6 +37,16 @@ const Works = () => {
             ),
             title: "Performance Optimized",
             description: "Lightning-fast applications with modern optimization techniques"
+        },
+        {
+            id: 4,
+            icon: (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className='text-primary'>
+                    <path d="M7 8L3 11.6923L7 16M17 8L21 11.6923L17 16M14 4L10 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+            ),
+            title: "Vibe Coding",
+            description: "Vibe coding with modern tools and technologies"
         }
     ];
 

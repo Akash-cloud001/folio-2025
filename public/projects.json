@@ -1,6 +1,15 @@
 {
   "works":[
   {
+    "id": "vetking-website",
+    "name": "VetKing Life ",
+    "url": "https://vetking-life-science.vercel.app/",
+    "imgUrl": "/images/projects/vetking.png",
+    "tech": ["React", "Tailwind CSS", "Framer Motion", "Cursor AI"],
+    "desc": "VetKing Life Science is a modern website designed for a veterinary-based company, showcasing its range of healthcare products and brand story. Built using AI-assisted tools like Cursor.ai, the site blends clean UI with interactive motion to present product information and company values in an engaging way.",
+    "smallDesc": "Vibe Coded website for a vet-based company to showcase products and brand story."
+  },
+  {
     "id": "akash-portfolio",
     "name": "Akash Folio",
     "url": "https://akash-codes.in",
