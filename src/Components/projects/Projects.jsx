@@ -19,21 +19,24 @@ const Projects = () => {
 
   // Fetch projects data
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setIsLoading(true);
-        const res = await fetch('/projects.json');
-        const data = await res.json();
-        if (data) {
-          setProjects(data?.works?.slice(0, 3)); // Only show first 3 projects
-        }
-      } catch (error) {
-        console.error('Error in fetching data :: ', error);
-        setError('Failed to load projects');
-      } finally {
-        setIsLoading(false);
-      }
-    };
+            const fetchData = async () => {
+          try {
+            setIsLoading(true);
+            const res = await fetch('/projects.json?v=' + Date.now());
+            const data = await res.json();
+            if (data) {
+              console.log('Fetched projects data:', data?.works);
+              const firstThreeProjects = data?.works?.slice(0, 3);
+              console.log('First 3 projects:', firstThreeProjects);
+              setProjects(firstThreeProjects); // Only show first 3 projects
+            }
+          } catch (error) {
+            console.error('Error in fetching data :: ', error);
+            setError('Failed to load projects');
+          } finally {
+            setIsLoading(false);
+          }
+        };
     fetchData();
   }, []);
 

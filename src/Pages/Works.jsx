@@ -58,9 +58,11 @@ const Works = () => {
           console.log('Attempted to scroll to top');
         const fetchData = async()=>{
             try {
-                const res = await fetch('/projects.json')
+                const res = await fetch('/projects.json?v=' + Date.now())
                 const data = await res.json();
                 if(data){
+                    console.log('Works page - Fetched projects data:', data?.works);
+                    console.log('Works page - First project:', data?.works?.[0]);
                     setWork(data?.works)
                 }
             } catch (error) {

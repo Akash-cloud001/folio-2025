@@ -2,7 +2,7 @@
   "works":[
   {
     "id": "vetking-website-01",
-    "name": "VetKing Life ",
+    "name": "VetKing Life",
     "url": "https://vetking-life-science.vercel.app/",
     "imgUrl": "/images/projects/vetking.png",
     "tech": ["React", "Tailwind CSS", "Framer Motion", "Cursor AI"],
