@@ -10,6 +10,15 @@
     "smallDesc": "Vibe Coded website for a vet-based company to showcase products and brand story."
   },
   {
+    "id": "sinatra-website-01",
+    "name": "Sinatra",
+    "url": "https://sinatra-xi.vercel.app/",
+    "imgUrl": "/images/projects/sinatra.png",
+    "tech": ["Vite", "React", "Tailwind CSS", "Cursor AI", "Claude AI"],
+    "desc": "Sinatra is a sleek, responsive website created in just one day using AI-assisted tools. Built with Vite and React for speed, enhanced by Cursor AI for UI efficiency, and guided by Claude AI for content and design flow. Designed for a client in the trading domain, it serves as a hub to showcase promo codes and redirect users to exclusive platform offers.",
+    "smallDesc": "Client website to redirect users to promo links and codes for a trading platform."
+  },  
+  {
     "id": "akash-portfolio",
     "name": "Akash Folio",
     "url": "https://akash-codes.in",

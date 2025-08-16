@@ -11,12 +11,6 @@ const Projects = () => {
   const [error, setError] = useState(null);
 
   const ref = useRef();
-  const { scrollYProgress } = useScroll({
-    target:ref
-  })
-  const y = useTransform(scrollYProgress, [0, 0.8], ['0%', '-100%']);
-  const top = useTransform(scrollYProgress, [0, 0.9], ['100%', '-200%']);
-
   // Fetch projects data
   useEffect(() => {
             const fetchData = async () => {
